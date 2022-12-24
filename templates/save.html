@@ -1,0 +1,55 @@
+<!-- {% load static %}
+<link rel="stylesheet" href="{% static 'style1.css' %}" /> -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzHvcjlrIA7TNWEJRDPzcMBzBe354cRXyfgg&usqp=CAU");
+        background-repeat: no-repeat;
+        background-size: cover;
+        text-align: center;
+        height: 110vh;
+        width: 100%;
+      }
+    </style>
+    <title>Save</title>
+  </head>
+  <body>
+    <h1>Enter your journey details:</h1>
+    <form method="POST" action="{%url 'save'%}">
+      {% csrf_token %}
+      <p>Name:</p>
+      <input type="text" name="name" placeholder="Enter Your Name" />
+      <p>Hall:</p>
+      <input type="number" name="hall" placeholder="Enter Your Hall" />
+      <p>Date:</p>
+      <input type="date" name="date" placeholder="Enter Your Journey Date" />
+      <p>Time:</p>
+      <input type="time" name="time" placeholder="Enter Your Journey Time" />
+      <p>BoardingLocation:</p>
+      <input
+        type="text"
+        name="Blocation"
+        placeholder="Enter Your Starting Location"
+      />
+      <p>Destination:</p>
+      <input
+        type="text"
+        name="Dlocation"
+        placeholder="Enter Your Final Location"
+      />
+      <p>Mobile number:</p>
+      <input
+        type="number"
+        name="phone"
+        placeholder="Enter Your Mobile Number"
+      /><br />
+      <input type="submit" />
+    </form>
+    <button><a href="{% url 'Login' %}">Back</a></button>
+  </body>
+</html>

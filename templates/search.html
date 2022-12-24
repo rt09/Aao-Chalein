@@ -1,0 +1,46 @@
+<!-- {% load static %}
+<link rel="stylesheet" href="{% static 'style1.css' %}"> -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      h5 {
+        color: blue;
+        font-size: large;
+      }
+
+      p {
+        font-style: italic;
+      }
+      body {
+        background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzHvcjlrIA7TNWEJRDPzcMBzBe354cRXyfgg&usqp=CAU");
+        background-repeat: no-repeat;
+        background-size: cover;
+        text-align: center;
+        height: 110vh;
+        width: 100%;
+      }
+    </style>
+    <title>Search</title>
+  </head>
+  <body>
+    {% for message in messages %}
+    <h5>{{message}}</h5>
+    {% endfor %}
+    <h1>Happy Journey!!</h1>
+    <br />
+    <h2>Enter your journey Date:</h2>
+
+    <form method="POST" action="{%url 'search'%}">
+      {% csrf_token %}
+      <p>Date:</p>
+      <input type="date" name="date" /><br />
+      <input type="submit" />
+    </form>
+    <button><a href="{% url 'save' %}">Back</a></button>
+  </body>
+</html>

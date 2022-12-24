@@ -1,0 +1,57 @@
+<!-- {% block content %}
+
+{% for x in data %}
+<p>Name:</p>
+{{x.name}}<br>
+<p>Hall:</p>
+{{x.hall}}<br>
+<p>Date:</p>
+{{x.date}}<br>
+<p>Time:</p>
+{{x.time}}<br>
+<p>Boarding Location:</p>
+{{x.Blocation}}<br>
+<p>Destination:</p>
+{{x.Dlocation}}
+{% endfor %}
+
+{% endblock content %} -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>result</title>
+</head>
+<body>
+    <div class="container">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>name</th>
+                    <th>Blocation</th>
+                    <th>Dlocation</th>
+                    <th>hall</th>
+                    <th>date</th>
+                    <th>time</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for x in data %}
+                <tr>
+                    <td>{{x.name}}</td>
+                    <td>{{x.Blocation}}</td>
+                    <td>{{x.Dlocation}}</td>
+                    <td>{{x.hall}}</td>
+                    <td>{{x.date}}</td>
+                    <td>{{x.time}}</td>
+                    
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      #mb {
+        display: flex;
+        flex-direction: column;
+        padding: 3px 200px;
+        height: 550px;
+        justify-content: center;
+        align-items: center;
+      }
+      body {
+        background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzHvcjlrIA7TNWEJRDPzcMBzBe354cRXyfgg&usqp=CAU");
+        background-repeat: no-repeat;
+        background-size: cover;
+        text-align: center;
+        height: 110vh;
+        width: 100%;
+      }
+    </style>
+    <title>Your Trips</title>
+  </head>
+  <body>
+    <section id="mb">
+      <p>Enter Your Mobile number:</p>
+      <form action="{%url 'trips'%}" method="POST">
+        {% csrf_token %}
+        <input type="number" name="phone" placeholder="Mobile Number" /></br>
+      <input type="submit"/>
+
+      </form>
+      
+    </section>
+  </body>
+</html>

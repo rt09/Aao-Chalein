@@ -1,0 +1,13 @@
+body{
+    background-color: rgb(223, 223, 151); text-align: center;
+    background: url('/mydjangoproject/static/img/bk.jpeg');
+    
+}
+/* .container{
+    margin-top: 0;
+    margin-left: 0;
+    
+} */
+/* cover {
+    background: url('/mydjangoproject/static/img/bk.jpeg');
+} */
