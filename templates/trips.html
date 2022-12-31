@@ -12,12 +12,13 @@
         height: 550px;
         justify-content: center;
         align-items: center;
+        text-align: center;
       }
       body {
-        background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzHvcjlrIA7TNWEJRDPzcMBzBe354cRXyfgg&usqp=CAU");
+        background-image: url("https://t4.ftcdn.net/jpg/03/05/11/25/360_F_305112572_ZIl735QFruE4xp3SNKLAhHnr3jkdBKib.jpg");
         background-repeat: no-repeat;
         background-size: cover;
-        text-align: center;
+        /* text-align: center; */
         height: 110vh;
         width: 100%;
       }
@@ -25,12 +26,13 @@
     <title>Your Trips</title>
   </head>
   <body>
+    <button class="logout"><a href="Login" style="color: rgb(126, 104, 104); text-decoration:none;">Logout</a></button>
     <section id="mb">
-      <p>Enter Your Mobile number:</p>
+      <p ><b>ENTER YOUR MOBILE NUMBER</b></p>
       <form action="{%url 'trips'%}" method="POST">
         {% csrf_token %}
-        <input type="number" name="phone" placeholder="Mobile Number" /></br>
-      <input type="submit"/>
+        <input style="padding:5px; width:245px;" type="number" name="phone" placeholder="Mobile Number" required /></br><br>
+      <input style="padding:4px; width:85px; background-color: aliceblue;" type="submit"/>
 
       </form>
       

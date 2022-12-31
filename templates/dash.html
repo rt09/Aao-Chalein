@@ -7,29 +7,58 @@
     <style>
         #sec{
             display: flex;
-        flex-direction: column;
-        padding: 3px 200px;
+        flex-direction: row-reverse;
+        padding: 15px 200px;
         height: 550px;
         justify-content: center;
         align-items: center;
+        justify-content: space-around;
         }
         
          body {
-        background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzHvcjlrIA7TNWEJRDPzcMBzBe354cRXyfgg&usqp=CAU");
-        background-repeat: no-repeat;
-        background-size: cover;
-        text-align: center;
-        height: 110vh;
+        background-image: url("https://p4.wallpaperbetter.com/wallpaper/631/417/215/shallow-photography-on-gray-tabby-cat-face-during-daytime-wallpaper-preview.jpg");
+        background-color: rgba(255,255,255,0.25);
+        background-blend-mode: lighten;
+        background-repeat: no-repeat; 
+        background-size:cover;
+        /* text-align: center; */
         width: 100%;
+         overflow-x: hidden;
       }
+      .btn {
+  background-color:black; /* Green */
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  opacity: 0.8;
+}
+.btn1 {
+    height: 6cm;
+    width: 6cm;
+    border-radius:50%;}
+.btn2 {height: 6cm;
+    width: 6cm;
+    border-radius:50%;}
+.btn3 {height: 6cm;
+    width: 6cm;
+    border-radius:50%;}
     </style>
     <title>Dashboard</title>
 </head>
 <body>
+    <button class="logout"><a href="Login" style=" padding-left: 10%; padding-right: 10%;" color: rgb(126, 104, 104); text-decoration:none; border-radius: 50%;">Logout</a></button>
     <section id="sec">
-    <button class="btn"><a href="trips" style="color: rgb(126, 104, 104);">Find All Your trips</a></button></br>
-    <button class="btn"><a href="search" style="color: rgb(126, 104, 104);">Find Match For Your trip</a></button></br>
-    <button class="btn"><a href="save" style="color: rgb(126, 104, 104);">Enter your trip details</a></button>
+   
+
+    <button class="btn btn1"><a href="trips" style="height:2 cm ; color:white; text-decoration:none;   padding: 36px; padding-top: 25px;  font-weight: bolder;" ><h2>Find All Your Trips</h2></a></button></br>
+    <button class="btn btn2"><a href="search" style="color: white; text-decoration:none; padding: 16px;padding-top: 25px;  font-weight: bolder;"><h2>Find Match For Your Trip</h2></a></button></br>
+    <button class="btn btn3"><a href="save" style="color: white; text-decoration:none; padding: 25px;padding-top: 25px;  font-weight: bolder;"><h2>Enter Your Trip Details</h2></a></button>
 
     </section>
     

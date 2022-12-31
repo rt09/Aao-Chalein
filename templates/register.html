@@ -6,52 +6,91 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Baloo Bhai' rel='stylesheet'>
     <style>
+        @font-face {
+                font-family: 'FAMILY_NAME';
+                src: url('https://fonts.google.com/specimen/Prosto+One');
+}
         h5 {
             color: blue;
             font-size: large;
         }
     
         p {
-            font-style: italic;
+            font-style:normal ;
         }
     
         body {
     
-            background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzHvcjlrIA7TNWEJRDPzcMBzBe354cRXyfgg&usqp=CAU");
+            background-image: url("https://i.pinimg.com/736x/f2/e8/99/f2e899df3e347ea2eade16b8ad8a40d5--gentileschi-artemisia-rumi-quotes.jpg");
+            background-color: rgba(255,255,255,0.675);
+            background-blend-mode: lighten;
             background-repeat: no-repeat;
             background-size: cover;
+        
             text-align: center;
             height: 110vh;
             width: 100%;
     
         }
-    
+        .reg{
+        width: 20cm;
+  align-self: center;      
+  height: 10cm;
+  border: 5px solid lightyellow;
+  background-color: lightyellow;
+  opacity: 0.575;
+  border-radius: 1cm;
+  padding: 30px 30px;
+  text-align: center;
+  margin-left: 40%; 
+  width: fit-content;
+  height: fit-content;
+        }
     </style>
     <title>register</title>
 </head>
+
 <body>
-    <h1>Register here!!</h1>
-    <form method="POST" action="register">
+<b>    
+    <h1  style="font-size:35px ; ">REGISTER HERE!!</h1>
+
+
+    <div class="reg">
+        <form method="POST" action="register">
         {% csrf_token %}
-        <p>Username:</p>
-        <input type="text" name="username" />
-        <p>IITK EmailID:</p>
-        <input type="email" name="email" />
-        <p>Phone Number:</p>
-        <input type="number" name="number" />
-        <p>Password:</p>
-        <input type="password" name="password" />
-        <p>Confirm password:</p>
-        <input type="password" name="password1" /><br>
-        <input type="submit" />
+        <p style="font-size: large;">USERNAME
+            <br>
+        <input  style="width:225px; padding: 3.7px;" type="text" name="username" />
+        </p>
+        <p style="font-size: large;">IITK EMAIL-ID<br>
+        <input style="width:225px;padding: 3.7px;" type="email" name="email" />
+        </p>
+        <p style="font-size: large;">PHONE NUMBER<br>
+        <input style="width:225px;padding: 3.7px;" type="mobile" name="number" />
+        </p>
+        <p style="font-size: large;">PASSWORD<br>
+        <input style="width:225px;padding: 3.7px;" type="password" name="password" />
+        </p>
+        <p style="font-size: large;">CONFIRM PASSWORD<br>
+        <input style="width:225px;padding: 3.7px;" type="password" name="password1" /><br>
+        <br>
+        <input style="font-size: large;" style="width:100px;" type="submit" />
+        <br>
+        <br>
     </form>
-    <p>Already Registered?</p>
-    <a href="{% url 'Login' %}"> Login</a></br>
-    <button><a href="{% url 'home' %}">Back</a></button>
+
+    </div>
+    
+    <p style="font-size: large;">ALREADY REGISTERED?<br>
+
+    <a href="{% url 'Login' %}" style="font-size: large;"> LOGIN</a></p></br>
+    <button style="font-size: small;" style="width:90px;"><a href="{% url 'home' %}" style="width:60px; text-decoration: none;">BACK</a></button>
     {% for message in messages %}
     <h5>{{message}}</h5>
     {% endfor %}
+</b>    
 </body>
 </html>
 

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+            window.onscroll = function() {scrollFunction()};
+
+      function scrollFunction() {
+        if (document.body.scrollTop > 5 || document.documentElement.scrollTop > 5) {
+          document.getElementById("navbar").style.padding = "30px 10px";
+        } else {
+          document.getElementById("navbar").style.padding = "20px 10px";
+        }
+    </script>
+    <style>
+      #navbar {
+        display: flex;
+        align-items: center;
+        position: sticky;
+        top: 0px;
+      }
+
+      #navbar::before {
+        content: "";
+        background-color: black;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        height: 100%;
+        width: 100%;
+        z-index: -1;
+        opacity: 0.7;
+      }
+
+      #navbar ul {
+        display: flex;
+        font-family: "Baloo Bhai", cursive;
+      }
+
+      #navbar ul li {
+        list-style: none;
+        font-size: 1.3rem;
+      }
+
+      #navbar ul li a {
+        color: white;
+        display: block;
+        padding: 3px 22px;
+        border-radius: 20px;
+        text-decoration: none;
+      }
+
+      #navbar ul li a:hover {
+        color: black;
+        background-color: white;
+      }
+
+      #home {
+        display: flex;
+        flex-direction: column;
+        padding: 3px 200px;
+        height: 550px;
+        justify-content: center;
+        align-items: center;
+      }
+
+      #home::before {
+        content: "";
+        position: absolute;
+        background: url("../bg1.jpg") no-repeat center center/cover;
+        height: 629px;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        z-index: -1;
+        opacity: 0.89;
+      }
+
+      #home h1 {
+        color: rgb(126, 104, 104);
+        text-align: center;
+        font-family: "Bree Serif", serif;
+      }
+
+      #home p {
+        color: rgb(126, 104, 104);
+        text-align: center;
+        font-size: 1.5rem;
+        font-family: "Bree Serif", serif;
+      }
+      /* body {
+        background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzHvcjlrIA7TNWEJRDPzcMBzBe354cRXyfgg&usqp=CAU");
+        background-repeat: no-repeat;
+        background-size: cover;
+        text-align: center;
+        height: 110vh;
+        width: 100%;
+      } */
+      body {
+        // background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzHvcjlrIA7TNWEJRDPzcMBzBe354cRXyfgg&usqp=CAU")
+        //   no-repeat top left;
+        background-size: cover;
+        clear: both;
+        padding: 0px;
+        margin: 0px;
+      }
+      .logo {
+        background-image: url("./aao.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding: 0px;
+        margin: 0px;
+        width: 150px;
+        height: 50px;
+        display: inline-block;
+      }
+      section {
+        display: block;
+        height: 50vh;
+        width: 70%;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        margin-left: 1cm;
+      }
+      #home {
+        text-align: center;
+      }
+    </style>
+    <title>Home</title>
+  </head>
+  <body>
+    <nav id="navbar">
+      <ul>
+        <li class="item"><a href="#Home">Home</a></li>
+        <li class="item"><a href="#About">About</a></li>
+        <li class="item"><a href="#Services">Services</a></li>
+        <li class="item"><a href="#Contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- <section id="aao" class="logo">
+      <div>
+        <img src="./aao.jpg" alt="" />
+      </div>
+    </section> -->
+
+    <section id="home">
+      <h1 class="h-primary">Make Your Trip</h1>
+      <p>“Good company on a journey makes the way seem shorter.”</p>
+      <!-- <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. </p> -->
+      <button class="btn"><a href="register">Register</a></button>
+      <p style="font-style: italic; font-size: medium">Already Registered?</p>
+      <button class="btn">
+        <a href="Login">Login</a>
+      </button>
+    </section>
+  </body>
+  <br />
+  <section id="About" style="font-style: italic; font-size: xx-large">
+    <h1>About Us</h1>
+
+    <p style="text-decoration: solid">
+      “Aao Chalein” is a budding entrepreneurial venture aspiring for
+      groundbreaking innovations in transport and commute. We strive for
+      bringing in convenience and safety to the travelers along with an
+      addressal to making the journeys more economical and relatable. Besides,
+      we are also working upon initiatives to help people sharing common
+      backgrounds and interests to connect with each other for real.
+    </p>
+  </section>
+  <section id="Services" style="font-style: italic; font-size: xx-large">
+    <br>
+    <h1 style="text-align: center">SERVICES</h1>
+    <br>
+    <h3>Sa-Haive</h3>
+    <p style="text-decoration: solid">
+      “Sa-Haive” is web based application which pairs up individuals from the
+      same Institution based upon their common destination and agreeable time
+      interval. The platform has been built keeping in mind the remote
+      institutions with a significant number of commuters but it can be a good
+      fit for remote localities as well. The application shall also provide the
+      travelers with contact details of verified drivers for that area. It can
+      also help the students plan any trip to/from the institution in advance by
+      looking up at the database to identify the co-travellers. The application
+      thus comes with a commitment to cut down an individual's traveling
+      expenditures and bring in a sense of safety to the travelers. 
+      <br>
+    <p>
+      The project was born out of inconveniences we faced at our own Campus, IIT
+      Kanpur. With more than 9K+ individuals onboard at this remote location and
+      multiple commuters round the clock, the institution is a good fit for the
+      problem as well as the solution we have come up with. The portal is
+      currently going through the testing phase at our Campus and we shall be
+      working upon further improvements and advances with the course of time.
+    </p>
+    <h4>Your convenience, our command, hassle free features:</h4>
+
+    <ul>
+      <li>Institute ID authentication for login</li>
+      <li>User agreed time interval being used for pairing</li>
+      <li>Public visibility of user details as per their consent</li>
+      <li>Removal of chaotic individuals from the portal</li>
+      <li>Contact with reliable and verified local drivers</li>
+    </ul>
+    <br>
+    <br>
+      <h3>Route Anomaly Alert: </h3>
+  
+      <p>
+      With this feature added, the website “Sa-Haive” shall alert
+      the user in case the driver is taking an unusual route to the destination.
+      In remote areas with sparse populations, this is one of the major safety
+      concerns for most of us. In case an unfavorable situation builds up, the
+      user can alert the local police authorities through this portal of a
+      possible life risk.
+      <br> 
+      <br>
+      <br>
+      </p>
+      <h3>Kon-act: </h3> 
+      <p>
+      At Institutions as large as our own, there is
+      a plethora of individuals working upon pretty much all the domains known
+      to humanity. However, what we found somewhat missing was a platform to
+      connect the willing peers together who could then together work in unison.
+      At IITK, we are still fortunate enough to have clubs, societies and
+      interest groups which is however not the case at a majority of
+      institutions. Moreover, such connections cross-cutting through the
+      physical boundaries of their respective institutions is extremely rare.
+      “Kon-act” is a project we have been working upon keeping this issue in
+      mind, aiming to unite all the interest groups who could be a help to each
+      other, together.
+      </p>
+    </p>
+ 
+  </section>
+  <br />
+</html>

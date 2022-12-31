@@ -8,32 +8,57 @@
       h3 {
         color: red;
       }
+      .log{
+        width: 20cm;
+  align-self: center;      
+  height: 10cm;
+  border: 5px solid lightcyan;
+  background-color: lightcyan;
+  opacity: 0.9;
+  border-radius: 1cm;
+  padding: 30px 30px;
+  text-align: center;
+  margin-left: 41.5%; 
+  width: fit-content;
+  height: fit-content;
+      }
 
       body {
-        background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzHvcjlrIA7TNWEJRDPzcMBzBe354cRXyfgg&usqp=CAU");
-        background-repeat: no-repeat;
-        background-size: cover;
+        align-items: center;
+        align-content: center;
+        align-self: center;
+        background-image: url("https://1.bp.blogspot.com/-bw0PKhvIlwk/YMmt__ilfqI/AAAAAAAAFdA/oa4t0m6Az-ETS75sjaqI9kYDuKUH0W5dACLcBGAsYHQ/s16000/car-5591459_1280.jpg");
+        background-color: rgba(255,255,255,0.7);
+        background-blend-mode: lighten;
+        /* background-repeat: no-repeat; */
         text-align: center;
-        height: 110vh;
+        height: 100vh;
         width: 100%;
       }
     </style>
     <title>login</title>
   </head>
   <body>
-    <h1>You have succesfully signed up</h1>
-    <h2>Login here</h2>
-    <form method="POST" action="Login">
+    <br>
+    <br>
+    <br>
+    <br>
+    <h2>LOGIN HERE!</h2>
+    <div class="log">
+<form style="padding:7px" method="POST" action="Login">
       {% csrf_token %}
-      <p>Username:</p>
-      <input type="text" name="username" />
-      <p>Password:</p>
-      <input type="password" name="password" /></br>
+      <p><b>USERNAME</b><br>
+      <input style="padding: auto;" type="text" name="username" /></p>
+      <p><b>PASSWORD</b><br>
+      <input style="padding: auto;" type="password" name="password" /></br><p><br>
       <!-- <p>Mobile Number:</p>
       <input type="number" name="phone" /><br /> -->
       <input type="submit" />
+       <button><a href="{% url 'register' %}" style="padding: 3px; text-decoration: none;" >Back</a></button>
     </form>
-    <button><a href="{% url 'register' %}">Back</a></button>
+    </div>
+    
+   
     {% for message in messages %}
     <h3>{{message}}</h3>
     {% endfor %}

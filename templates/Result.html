@@ -18,40 +18,75 @@
 {% endblock content %} -->
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body{
+        /* background-image: url("https://1721181113.rsc.cdn77.org/data/images/full/37656/close-up-shot-of-white-toy-angry-robot.jpg") ; */
+                background-color: rgba(255,255,255,0.5);
+        background-blend-mode: lighten;
+        background-repeat: no-repeat; 
+        background-size:cover;
+
+
+      }
+      .container {
+        align-items: center;
+        align-content: center;
+        text-align: center;
+        align-self: center;
+      }
+    </style>
     <title>result</title>
-</head>
-<body>
+  </head>
+  <body>
+    <button class="logout">
+      <a href="Login" style="color: rgb(126, 104, 104); text-decoration: none"
+        >Logout</a
+      >
+    </button>
     <div class="container">
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>name</th>
-                    <th>Blocation</th>
-                    <th>Dlocation</th>
-                    <th>hall</th>
-                    <th>date</th>
-                    <th>time</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for x in data %}
-                <tr>
-                    <td>{{x.name}}</td>
-                    <td>{{x.Blocation}}</td>
-                    <td>{{x.Dlocation}}</td>
-                    <td>{{x.hall}}</td>
-                    <td>{{x.date}}</td>
-                    <td>{{x.time}}</td>
-                    
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+      <table
+        class="table table-striped"
+        style="
+          border: 1px solid black;
+          margin-left: auto;
+          margin-right: auto;
+          padding: 80px 80px 80px 80px;
+          margin-top: 10px !important;
+        "
+      >
+        <thead>
+          <tr style="align-items: center">
+            <th>NAME&nbsp;&nbsp;&nbsp;<w</th>
+            &nbsp;
+            <th>BLOCATION&nbsp;&nbsp;&nbsp;&nbsp;</th>
+            &nbsp;&nbsp;
+            <th>DLOCATION&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+            <th>CITY FROM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+            <th>CITY TO&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+            <th>HALL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+            <th>DATE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+            <th>TIME&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for x in data %}
+          <tr>
+            <td>{{x.name}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td>{{x.Blocation}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td>{{x.Dlocation}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td>{{x.cityfrom}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td>{{x.cityto}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td>{{x.hall}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td>{{x.date}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td>{{x.time}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
     </div>
-    
-</body>
+  </body>
 </html>

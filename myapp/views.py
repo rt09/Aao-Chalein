@@ -4,13 +4,14 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
-from .models import journeyDetails
+from .models import journeyDetails, Loggedin, contactinfo
 from django.core.mail import send_mail
 import math
 import random
 from django.conf import settings
 from django.core.mail import EmailMessage, get_connection
-
+from django.views.decorators.csrf import csrf_exempt
+import datetime
 # Create your views here.
 # from django.template import loader
 
@@ -24,12 +25,14 @@ from django.core.mail import EmailMessage, get_connection
 def register(request):
     global m
     global u1
+    global p1
     if request.method == 'POST':
         username = request.POST['username']
         u1 = username
         email = request.POST['email']
         m = email
         password = request.POST['password']
+        p1 = password
         password1 = request.POST['password1']
 
         if "@iitk.ac.in" in email:
@@ -41,9 +44,6 @@ def register(request):
                     messages.info(request, 'Username already exists')
                     return redirect('register')
                 else:
-                    user = User.objects.create_user(
-                        username=username, email=email, password=password)
-                    user.save()
                     send_otp()
                     return redirect('otp')
 
@@ -51,7 +51,7 @@ def register(request):
                 messages.info(request, 'Password are not same')
                 return redirect('register')
         else:
-            messages.info(request, 'please register with your IITK email ID')
+            messages.info(request, 'Please register with your IITK email ID')
             return redirect('register')
 
     else:
@@ -59,15 +59,26 @@ def register(request):
         return render(request, 'register.html')
 
 
+# u2 = "ritik"
+# GLOBAL_VARIABLE = NONE
+
+
 def Login(request):
+    global u2
     if request.method == 'POST':
         username = request.POST['username']
+        u2 = username
         password = request.POST['password']
 
-        user = auth.authenticate(username=username, password=password)
+        user = auth.authenticate(username=u2, password=password)
 
         if user is not None:
             auth.login(request, user)
+            sv1 = Loggedin(loggedin=username,
+                           time=datetime.datetime.now().time(), date=datetime.datetime.now().date())
+            # sv2 = journeyDetails(username=username)
+            sv1.save()
+            # sv2.save()
             return redirect('dash')
         else:
 
@@ -78,6 +89,13 @@ def Login(request):
         return render(request, 'Login.html')
 
 
+# def delogin(request,*u2):
+#     if request.user.is_authenticated:
+#         log = Loggedin.objects.filter(loggedin=u2)
+#         log.delete()
+#         return redirect('Login')
+
+
 def save(request):
     if request.method == "POST":
         name = request.POST.get('name')
@@ -86,12 +104,16 @@ def save(request):
         time = request.POST.get('time')
         Blocation = request.POST.get('Blocation')
         Dlocation = request.POST.get('Dlocation')
+        cityfrom = request.POST.get('cityfrom')
+        cityto = request.POST.get('cityto')
         phone = request.POST.get('phone')
-        sv = journeyDetails(name=name, hall=hall, date=date,
-                            time=time, Blocation=Blocation, Dlocation=Dlocation, phone=phone)
+        comment = request.POST.get('comment')
+        username = Loggedin.objects.first()
+        sv = journeyDetails(name=name, username=username, hall=hall, date=date,
+                            time=time, Blocation=Blocation, Dlocation=Dlocation, cityfrom=cityfrom, cityto=cityto, phone=phone, comments=comment)
         sv.save()
         messages.success(request, 'Data Saved')
-        return redirect('search')
+        return redirect('dash')
     else:
         return render(request, 'save.html')
 
@@ -99,13 +121,12 @@ def save(request):
 def search(request):
     if request.method == "POST":
         date = request.POST.get('date')
-
         data = journeyDetails.objects.filter(date=date)
         if journeyDetails.objects.filter(date=date).exists():
             return render(request, 'Result.html', {'data': data})
         else:
             messages.info(request, 'No journey for this date')
-            return redirect('search')
+            return redirect('Login')
     else:
         return render(request, 'search.html')
 
@@ -146,6 +167,9 @@ def otp(request):
 
         otp = request.POST.get('otp')
         if(int(otp) == int(c)):
+            user = User.objects.create_user(
+                username=u1, email=m, password=p1)
+            user.save()
             return redirect('Login')
         else:
             u = User.objects.filter(username=u1)
@@ -177,5 +201,29 @@ def send_otp():
     return HttpResponse(o)
 
 
+# def dates(request, *u2):
+
+#     data = journeyDetails.objects.filter(username=u2)
+#     if journeyDetails.objects.filter(username=u2).exists():
+#         return render(request, 'dates.html', {'data': data})
+#     else:
+#         messages.info(request, 'You have not any registered trip')
+#         return redirect('dash')
+
 # def home1(request):
 #     return render(request, "home1.html")
+
+
+def contact(request):
+    if request.method == "POST":
+        name = request.POST['Name']
+        email = request.POST['Email']
+        subject = request.POST['Subject']
+        message = request.POST['Message']
+        det = contactinfo(name=name, email=email,
+                          subject=subject, message=message)
+        det.save()
+        messages.info(request, 'We Will Get In Touch With You Soon')
+        return render(request, 'home.html')
+    else:
+        return render(request, 'home.html')

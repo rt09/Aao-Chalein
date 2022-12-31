@@ -1,136 +1,326 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <style>
-      #navbar {
-        display: flex;
-        align-items: center;
-        position: sticky;
-        top: 0px;
-      }
+<html>
+<head>
+<title>Home</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    .box{
+  width: 20cm;
+  height: 10cm;
+  border: 15px solid green;
+  padding: 100px 100px;
+  padding-top: 10px;
+  margin-left: 55%;
+  margin-top: 1%;
+  margin-right: 100px;
+  text-align: justify;
+  /* overflow: auto; */
+  
+    }
+    .flex{
+        display: inline-flex;
+        height: 8cm;
+        
+    }
 
-      #navbar::before {
-        content: "";
-        background-color: black;
-        position: absolute;
-        top: 0px;
-        left: 0px;
-        height: 100%;
-        width: 100%;
-        z-index: -1;
-        opacity: 0.7;
-      }
+  
+ body {
+  background-image: url('https://www.brown.edu/sites/default/files/styles/ultrawide_med/public/2021-05/websites.brown_.edu_hero.png?h=1331d1be&itok=1c183Qt0');
+} 
+html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
+.mySlides {display:none}
+.w3-tag, .fa {cursor:pointer}
+.w3-tag {height:15px;width:15px;padding:0;margin-top:6px}
+</style>
+</head>
+<body>
 
-      #navbar ul {
-        display: flex;
-        font-family: "Baloo Bhai", cursive;
-      }
+  
 
-      #navbar ul li {
-        list-style: none;
-        font-size: 1.3rem;
-      }
+<!-- Links (sit on top) -->
+<div class="w3-top">
+  <div class="w3-row w3-large w3-light-grey">
+    <div class="w3-col s3">
+      <a href="#" class="w3-button w3-block">Home</a>
+    </div>
+    <div class="w3-col s2">
+      <a href="#plans" class="w3-button w3-block">About</a>
+    </div>
+    <div class="w3-col s2">
+      <a href="#about" class="w3-button w3-block">Services</a>
+    </div>
+    <div class="w3-col s2">
+      <a href="#team" class="w3-button w3-block">Our Team</a>
+    </div>
+        <div class="w3-col s3">
+      <a href="#contact" class="w3-button w3-block">Contact</a>
+    </div>
+  </div>
+</div>
 
-      #navbar ul li a {
-        color: white;
-        display: block;
-        padding: 3px 22px;
-        border-radius: 20px;
-        text-decoration: none;
-      }
 
-      #navbar ul li a:hover {
-        color: black;
-        background-color: white;
-      }
+  <div style="background-image: url('https://images.pexels.com/photos/1004014/pexels-photo-1004014.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'); 
+  background-size: cover; height:520px; padding-top:80px; margin-top:-205px">
+  <div class="w3-content" style="max-width:1100px;margin-top:330px;margin-bottom:80px">
 
-      #home {
-        display: flex;
-        flex-direction: column;
-        padding: 3px 200px;
-        height: 550px;
-        justify-content: center;
-        align-items: center;
-      }
 
-      #home::before {
-        content: "";
-        position: absolute;
-        background: url("../bg1.jpg") no-repeat center center/cover;
-        height: 629px;
-        top: 0px;
-        left: 0px;
-        width: 100%;
-        z-index: -1;
-        opacity: 0.89;
-      }
+<!-- Content -->
 
-      #home h1 {
-        color: rgb(126, 104, 104);
-        text-align: center;
-        font-family: "Bree Serif", serif;
-      }
+ 
+  <br>
+  <br>
 
-      #home p {
-        color: rgb(126, 104, 104);
-        text-align: center;
-        font-size: 1.5rem;
-        font-family: "Bree Serif", serif;
-      }
-      /* body {
-        background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzHvcjlrIA7TNWEJRDPzcMBzBe354cRXyfgg&usqp=CAU");
-        background-repeat: no-repeat;
-        background-size: cover;
-        text-align: center;
-        height: 110vh;
-        width: 100%;
-      } */
-      body {
-        background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzHvcjlrIA7TNWEJRDPzcMBzBe354cRXyfgg&usqp=CAU")
-          no-repeat top left;
-        background-size: cover;
-        clear: both;
-        padding: 0px;
-        margin: 0px;
-      }
-      .logo {
-        background-image: url("./aao.jpg");
-        background-repeat: no-repeat;
-        background-size: cover;
-        padding: 0px;
-        margin: 0px;
-        width: 150px;
-        height: 50px;
-        display: inline-block;
-      }
-    </style>
-    <title>Home</title>
-  </head>
-  <body>
-    <nav id="navbar">
-      <ul>
-        <li class="item"><a href="">Home</a></li>
-        <li class="item"><a href="">Services</a></li>
-        <li class="item"><a href="">About us</a></li>
-        <li class="item"><a href="">Contact Us</a></li>
+  <br>
+    <br>
+ <br>
+ <br>
+
+<div style="text-align: left;" class="flex">
+    <img src="https://drive.google.com/thumbnail?id=1L_tAshxhmkKkBiQSemp2UFm8B7iFwhsn" width="300" alt="My Image" style=" margin-left:30px; margin-bottom:37px;" />
+ <div class="w3-half w3-right-align w3-margin-top" style="margin-right:30px; margin-left:400px">
+      <ul align="center" class="w3-ul w3-border w3-right w3-hover-shadow">
+        <li  align="center" class="w3-dark-grey w3-large w3-padding-20" style="text-align:center"><b>MAKE YOUR TRIP</b></li>
+        <li style="background-color:white" class="w3-padding-24"><p align="justify">“A good company on a journey makes the way seem shorter”</p></li>
+        <li class="w3-light-grey w3-padding-19">
+             <button class="w3-button w3-indigo w3-padding-small ">      <a href="register"  style="align-items: flex-start; margin-right:5px ;" class="w3-button w3-block">Register</a></button>
+             &emsp;
+          <button class="w3-button w3-indigo w3-padding-small">      <a href="Login" class="w3-button w3-block">Login</a></button>
+        </li>
+      </u>
+    </div> 
+ </div>   
+  
+  <!-- Grid -->
+  <div class="w3-row w3-container"id="plans">
+    <div class="w3-center w3-padding-64">
+      <span class="w3-xxlarge w3-bottombar w3-border-dark-grey w3-padding-16"><b>Who we Are</b></span>
+      
+    </div>
+    <span class="w3-xlarge  w3-border-dark-grey w3-padding-16"><p align="justify">“Aao Chalein” is a budding entrepreneurial venture aspiring for groundbreaking innovations in transport and commute.  We strive for bringing in convenience and safety  to the travelers along with an addressal to making the journeys more economical. Besides, we are also working upon initiatives to help people sharing common backgrounds and interests to  connect with each other for real.</p> </span>
+    <br>
+
+
+  <!-- Grid -->
+  <div class="w3-row-padding" id="about">
+    <div class="w3-center w3-padding-64">
+      <h1><b>OUR SERVICES</b></h1>
+    </div>
+
+    <div class="w3-third w3-margin-bottom">
+      <ul class="w3-ul w3-border w3-center w3-hover-shadow">
+        <li class="w3-black w3-xlarge w3-padding-32">Sa-Haive</li>
+        <li style="background-color:#CCCCFF" class="w3-padding-16"><p align="justify">Application to pair up individuals from the same Institution based upon their common destination and an agreeable time interval.</p></li>
+        <li class="w3-light-grey w3-padding-24">
+          <button class="w3-button w3-green w3-padding-large">      <a href="#sah" class="w3-button w3-block">View More</a></button>
+        </li>
+      </u>
+    </div>
+    
+        <div class="w3-third w3-margin-bottom">
+      <ul class="w3-ul w3-border w3-center w3-hover-shadow">
+        <li class="w3-black w3-xlarge w3-padding-32">Route-Anomaly Alert</li>
+        <li style="background-color:#CCCCFF" class="w3-padding-16"><p align="justify">Alerts the user in case the driver takes an unusual route to the destination & contact the relevant authorities in case of any emergency.</p></li>
+        <li class="w3-light-grey w3-padding-24">
+          <button class="w3-button w3-green w3-padding-large"><a href="#ano" class="w3-button w3-block">View More</a></button>
+        </li>
       </ul>
-    </nav>
+    </div>
+    
+        <div class="w3-third w3-margin-bottom">
+      <ul class="w3-ul w3-border w3-center w3-hover-shadow">
+        <li class="w3-black w3-xlarge w3-padding-32">Kon-Act</li>
+        <li style="background-color:#CCCCFF" class="w3-padding-16"><p align="justify">Application to bring together individuals with common interests and backgrounds thereby helping them to  work together as a team.</p></li>
+        <li class="w3-light-grey w3-padding-24">
+          <button class="w3-button w3-green w3-padding-large"><a href="#kon" class="w3-button w3-block">View More</a></button>
+        </li>
+      </ul>
+    </div>
+    
+  </div>
+<div class="w3-center w3-padding-48"id="sah">
+      <span class="w3-xlarge w3-border-dark-grey w3-padding-10"><b>Sa-Haive</b></span>
+      
+    </div>  
+      <span class="w3-large  w3-border-dark-grey w3-padding-13"><p align="justify">“Sa-Haive” is a web based application which pairs up individuals from the same Institution based upon their common destination and mutually agreeable time interval. The platform has been built keeping in mind the remote institutions with a significant number of commuters. The application shall also provide the travelers with contact details of verified drivers for that area. It can also help the students plan any trip to/from the institution in advance by looking up at the database to identify the co-travellers. The application thus comes with a commitment to cut down an individual's traveling expenditures and bring in a sense of safety to the travelers. 
+<br><br>
+The project was born out of inconveniences we faced at our own Campus, IIT Kanpur. With more than 9K+ individuals onboard at this remote location and multiple commuters round the clock, the institution is a good fit for our analysis. The portal is currently going through the testing phase at our Campus and we shall be working upon further improvements and advances with the course of time.</p></span>
 
-    <section id="aao" class="logo">
-      <div>
-        <img src="./aao.jpg" alt="" />
+<div class="w3-center w3-padding-48"id="ano">
+      <span class="w3-xlarge w3-border-dark-grey w3-padding-10"><b>Route Anomaly Alert</b></span>
+      
+    </div>  
+      <span class="w3-large  w3-border-dark-grey w3-padding-13"><p align="justify">This application shall alert the user in case the driver is taking an unusual route to the destination.  In remote areas with sparse populations, this is one of the major safety concerns for most of us. In case an unfavorable situation builds up, the user can alert the relevant authorities through this portal . The idea is currently in its initial phase and shall be added as an extension to the application "Sa-Haive" upon its Completion.</p></span>
+
+<div class="w3-center w3-padding-48"id="kon">
+      <span class="w3-xlarge w3-border-dark-grey w3-padding-10"><b>Kon-Act</b></span>
+      
+    </div>  
+      <span class="w3-large  w3-border-dark-grey w3-padding-13"><p align="justify">
+At Institutions as large as our own, there is a plethora of individuals working upon pretty much all the domains known to humanity. However, what  we found somewhat missing was a platform to connect the willing peers together who could then together work in unison. At IITK, we are still fortunate enough to have clubs, societies and interest groups which is however not the case at a majority of institutions. Moreover, such connections cross-cutting through the physical boundaries of their respective institutions is extremely rare. “Kon-act” is a project we have been working upon keeping this issue in mind, aiming to unite all the interest groups who could be a help to each other, together.</p></span>
+
+  <!-- Grid -->
+  <div class="w3-row-padding" id="team">
+    <div class="w3-center w3-padding-64">
+      <span class="w3-xxlarge w3-bottombar w3-border-dark-grey w3-padding-16"><b>Our Team</b></span>
+    </div>
+
+
+    <div  class="w3-quarter 3-margin-bottom">
+      <div class="w3-card-4">
+        <img src="https://drive.google.com/thumbnail?id=1_u3wSrnhDbhO9Uo1VAJOcZwO-KZNWbOK"  style="width:100%; height:232px;">
+        <div style="background-color:#73A16C" class="w3-container">
+          <h3>Kshiteesh Bhardwaj</h3>
+          <p class="w3-opacity">CEO</p>
+          <p><small>Pursuing Mathematics & Scientific Computing at IIT Kanpur with interests otherwise. A committed explorer striving for perfection.</small></p>
+          <p><button class="w3-button w3-light-grey w3-block"><a href="#contact" style="text-decoration: none;">Contact</a></button></p>
+        </div>
       </div>
-    </section>
+    </div>
+    
+               <div class="w3-quarter w3-margin-bottom">
+      <div class="w3-card-4">
+        <img src="https://drive.google.com/thumbnail?id=1jDSZDH_uIf-Gsd2cev1CwCE1TWjXi1YS"   style="width:100%; height:232px;">
+        <div style="background-color:#73A16C" class="w3-container">
+          <h3>Ritik Tiwari</h3>
+          <p class="w3-opacity">CTO</p>
+          <p><small>Pursuing Material Science And Engineering at IIT Kanpur. Love to play with technology to get new set of skills. Also a music & dance lover</small></p>
+          <p><button class="w3-button w3-light-grey w3-block"><a href="#contact" style="text-decoration: none;">Contact</a></button></p>
+        </div>
+      </div>
+    </div> 
+    
+           <div  class="w3-quarter w3-margin-bottom">
+      <div class="w3-card-4">
+        <img src="https://drive.google.com/thumbnail?id=1wdj5OaXQngZs6N_y8fj19r4S2EKyJX28"  style="width:100%;height:232px;">
+        <div style="background-color:#73A16C" class="w3-container">
+          <h3>Devansh Singh</h3>
+          <p class="w3-opacity">CMO</p>
+          <p><small>Pursuing Mathematics & Scientific Computing at IIT Kanpur with interest otherwise. A committed explorer striving for perfection.</small></p>
+          <p><button class="w3-button w3-light-grey w3-block"><a href="#contact" style="text-decoration: none;">Contact</a></button></p>
+        </div>
+      </div>
+    </div>    <div  class="w3-quarter w3-margin-bottom">
+      <div class="w3-card-4">
+        <img src="https://drive.google.com/thumbnail?id=16-HwklBVWkBQYW0Q8b9T1BYtvTcqM3gY"  style="width:100%; height:232px;">
+        <div style="background-color:#73A16C" class="w3-container">
+          <h3>Riyan Gaiyakwad</h3>
+          <p class="w3-opacity">COO</p>
+          <p ><small>Pursuing Mathematics & Scientific Computing at IIT Kanpur with interest otherwise. A committed explorer striving for perfection.</small></p>
+          
+         <p><button class="w3-button w3-light-grey w3-block"><a href="#contact" style="text-decoration: none;">Contact</a></button></p>
+        </div>
+      </div>
+    </div>
+    </div>
+  <br>
 
-    <section id="home">
-      <h1 class="h-primary">Make Your Trip</h1>
-      <p>“Good company on a journey makes the way seem shorter.”</p>
-      <!-- <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. </p> -->
-      <button class="btn"><a href="register">Register</a></button>
-      <button class="btn"><a href="Login">Login</a></button>
-    </section>
-  </body>
+
+  <!-- Contact -->
+
+  <div class="w3-row-padding" id="contact">
+    <div class="w3-center w3-padding-64">
+      <span class="w3-xxlarge w3-bottombar w3-border-dark-grey w3-padding-16"><b>Contact Us</b></span>
+    </div>
+</div>
+
+  <form class="w3-container" action="contact" method="POST">
+    {% csrf_token %}
+    <div class="w3-section">
+      <label>Name</label>
+      <input class="w3-input w3-border w3-hover-border-black" style="width:100%;" type="text" name="Name" required>
+    </div>
+    <div class="w3-section">
+      <label>Email</label>
+      <input class="w3-input w3-border w3-hover-border-black" style="width:100%;" type="text" name="Email" required>
+    </div>
+    <div class="w3-section">
+      <label>Subject</label>
+      <input class="w3-input w3-border w3-hover-border-black" style="width:100%;" name="Subject" required>
+    </div>
+    <div class="w3-section">
+      <label>Message</label>
+      <input class="w3-input w3-border w3-hover-border-black" style="width:100%;" name="Message" required>
+    </div>
+    <button type="submit" class="w3-button w3-block w3-black">Send</button>
+  </form>
+
+</div>
+<br>
+<br>
+<div class="w3-half">
+      <ul class="w3-ul w3-center">
+        <li class="w3-grey  ">+91-8076945839</li>
+        </li>
+      </ul>
+    </div>
+<div class="w3-half ">
+      <ul class="w3-ul w3-center ">
+        <li class="w3-grey">E-Mail: aaochalein17@gmail.com </li>
+        </li>
+      </ul>
+    </div>    
+    
+ <br><br>
+<div class>
+      <ul class="w3-ul w3-center ">
+        <li class="w3-grey">Hall of Residence II, IIT Kanpur, Kalyanpur, Kanpur 208016</li>
+        </li>
+      </ul>
+    </div>
+
+
+
+
+  <br>
+  <br>
+
+
+<!-- Footer -->
+
+<footer class="w3-container w3-padding-32 w3-aqua w3-center">
+  <a href="#" class="w3-button w3-black w3-margin"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+  <div class="w3-xlarge w3-section">
+    <i class="fa fa-facebook-official w3-hover-opacity"></i>
+    <i class="fa fa-instagram w3-hover-opacity"></i>
+    <i class="fa fa-twitter w3-hover-opacity"></i>
+    <i class="fa fa-linkedin w3-hover-opacity"></i>
+  </div>
+</footer>
+
+
+<script>
+// Slideshow
+var slideIndex = 1;
+showDivs(slideIndex);
+
+function plusDivs(n) {
+  showDivs(slideIndex += n);
+}
+
+function currentDiv(n) {
+  showDivs(slideIndex = n);
+}
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demodots");
+  if (n > x.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = x.length} ;
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" w3-white", "");
+  }
+  x[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " w3-white";
+}
+</script>
+
+</body>
 </html>

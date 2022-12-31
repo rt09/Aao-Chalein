@@ -17,30 +17,79 @@
         font-style: italic;
       }
       body {
-        background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzHvcjlrIA7TNWEJRDPzcMBzBe354cRXyfgg&usqp=CAU");
+        background-image: url("https://media.istockphoto.com/id/491725433/photo/antique-clock.jpg?s=612x612&w=0&k=20&c=BmI0iK2f1fMeKzVyF2kmryP-JUzrsshBwtqlqJySbr4=");
         background-repeat: no-repeat;
         background-size: cover;
-        text-align: center;
+        background-color: rgba(255, 255, 255, 0.4);
+        background-blend-mode: lighten;
+        /* text-align: center; */
         height: 110vh;
         width: 100%;
       }
+      .date {
+        text-align: center;
+      }
     </style>
-    <title>Search</title>
+    <title>Find Dates</title>
+    <!-- <script type="text/javascript">
+      function getdate(){
+        var opt=document.querySelector("#lang")
+        var date=opt.options[opt.selectedIndex].value;
+      }
+      $.ajax({
+        type: "GET",
+        url: 'search',
+        data: {
+            "date": date,
+        },
+        dataType: "json",
+        success: function (data) {
+            // any process in data
+            alert("successfull")
+        },
+        failure: function () {
+            alert("failure");
+        }
+    });
+
+    </script> -->
   </head>
   <body>
-    {% for message in messages %}
-    <h5>{{message}}</h5>
-    {% endfor %}
-    <h1>Happy Journey!!</h1>
-    <br />
-    <h2>Enter your journey Date:</h2>
+    <button class="logout">
+      <a href="Login" style="color: rgb(126, 104, 104); text-decoration: none"
+        >Logout</a
+      ></button
+    ><br />
+    <div class="date">
+      {% for message in messages %}
+      <h5>{{message}}</h5>
+      {% endfor %}
+      <h1>Happy Journey!!</h1>
+      <br />
+      <h2>Enter your journey Date:</h2>
 
-    <form method="POST" action="{%url 'search'%}">
-      {% csrf_token %}
-      <p>Date:</p>
-      <input type="date" name="date" /><br />
-      <input type="submit" />
-    </form>
-    <button><a href="{% url 'save' %}">Back</a></button>
+      <form method="POST" action="{%url 'search'%}">
+        {% csrf_token %}
+        <p>Date:</p>
+        <input type="date" name="date" /><br />
+        <input type="submit" />
+      </form>
+      <button><a href="{% url 'dash' %}">Back</a></button>
+    </div>
+
+    <!-- <div class="container">
+      <h1>Find Match For Your Registered Journey Dates:</h1><br> -->
+
+    <!-- <select name="dates" id="lang">
+             <option value="" disabled selected hidden>Choose your date</option> -->
+    <!-- {% for x in data %}
+           <button><a href=""   style="color: rgb(126, 104, 104); text-decoration:none;">{{x.date}}</a></button> <br><br>
+        {% endfor %} -->
+
+    <!-- <a href=""  style="color: rgb(126, 104, 104); text-decoration:none;">{{x.date}}</a> -->
+    <!-- <button>
+              
+              <input type="date" value={{x.date}} name="product">
+            </button><br><br> -->
   </body>
 </html>
