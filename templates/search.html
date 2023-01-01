@@ -60,18 +60,23 @@
         >Logout</a
       ></button
     ><br />
-    <div class="date">
+    <div class="key">
       {% for message in messages %}
       <h5>{{message}}</h5>
       {% endfor %}
       <h1>Happy Journey!!</h1>
       <br />
-      <h2>Enter your journey Date:</h2>
+      <h2>
+        <b
+          >Enter Your Unique key for a specific date sent on mail to get your
+          Match for the same date</b
+        >
+      </h2>
 
       <form method="POST" action="{%url 'search'%}">
         {% csrf_token %}
-        <p>Date:</p>
-        <input type="date" name="date" /><br />
+        <p>Unique Key :</p>
+        <input type="text" name="key" required /><br />
         <input type="submit" />
       </form>
       <button><a href="{% url 'dash' %}">Back</a></button>

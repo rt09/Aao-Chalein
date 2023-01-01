@@ -11,8 +11,8 @@ from django.db.models import Model
 
 
 class journeyDetails(models.Model):
-    id = models.IntegerField(primary_key=True)
-    username = models.CharField(max_length=100)
+    id = models.CharField(max_length=100, primary_key=True)
+    emailid = models.CharField(max_length=100)
     name = models.CharField(max_length=100)
     hall = models.CharField(max_length=100)
     date = models.DateField(max_length=100)

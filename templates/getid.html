@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body{
+        /* background-image: url("https://1721181113.rsc.cdn77.org/data/images/full/37656/close-up-shot-of-white-toy-angry-robot.jpg") ; */
+                background-color: rgba(255,255,255,0.5);
+        background-blend-mode: lighten;
+        background-repeat: no-repeat; 
+        background-size:cover;
+
+
+      }
+      .container {
+        align-items: center;
+        align-content: center;
+        text-align: center;
+        align-self: center;
+      }
+    </style>
+    <title>All Unique Key Ids</title>
+  </head>
+  <body>
+    <button class="logout">
+      <a href="Login" style="color: rgb(126, 104, 104); text-decoration: none"
+        >Logout</a
+      >
+    </button>
+    <div class="container">
+      <table
+        class="table table-striped"
+        style="
+          border: 1px solid black;
+          margin-left: auto;
+          margin-right: auto;
+          padding: 80px 80px 80px 80px;
+          margin-top: 10px !important;
+        "
+      >
+        <thead>
+          <tr style="align-items: center">
+            <th>Unique Ids&nbsp;&nbsp;&nbsp;<w</th>
+            &nbsp;
+            <th>Dates&nbsp;&nbsp;&nbsp;</th>
+            &nbsp;
+          </tr>
+        </thead>
+        <tbody>
+          {% for x in data %}
+          <tr>
+            <td>{{x.id}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td>{{x.date}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

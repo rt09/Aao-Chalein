@@ -62,9 +62,12 @@ def register(request):
 # u2 = "ritik"
 # GLOBAL_VARIABLE = NONE
 
+r = "devanshs20@iitk.ac.in"
+
 
 def Login(request):
     global u2
+    global r
     if request.method == 'POST':
         username = request.POST['username']
         u2 = username
@@ -79,6 +82,7 @@ def Login(request):
             # sv2 = journeyDetails(username=username)
             sv1.save()
             # sv2.save()
+            r = searchuser(username)
             return redirect('dash')
         else:
 
@@ -96,7 +100,7 @@ def Login(request):
 #         return redirect('Login')
 
 
-def save(request):
+def saver(request):
     if request.method == "POST":
         name = request.POST.get('name')
         hall = request.POST.get('hall')
@@ -108,22 +112,35 @@ def save(request):
         cityto = request.POST.get('cityto')
         phone = request.POST.get('phone')
         comment = request.POST.get('comment')
-        username = Loggedin.objects.first()
-        sv = journeyDetails(name=name, username=username, hall=hall, date=date,
+        # username = Loggedin.objects.last()
+        send_journeykey()
+        sv = journeyDetails(id=c, emailid=r, name=name, hall=hall, date=date,
                             time=time, Blocation=Blocation, Dlocation=Dlocation, cityfrom=cityfrom, cityto=cityto, phone=phone, comments=comment)
         sv.save()
-        messages.success(request, 'Data Saved')
+
+        # messages.success(request, 'Data Saved')
+
         return redirect('dash')
     else:
-        return render(request, 'save.html')
+        return render(request, 'saver.html')
+
+
+def searchuser(u2):
+    global d
+    keyuser = User.objects.get(username=u2)
+    keyemail = keyuser.email
+    d = keyemail
+    return d
 
 
 def search(request):
     if request.method == "POST":
-        date = request.POST.get('date')
-        data = journeyDetails.objects.filter(date=date)
+        key = request.POST.get('key')
+        data = journeyDetails.objects.get(id=key)
+        date = data.date
+        info = journeyDetails.objects.filter(date=date)
         if journeyDetails.objects.filter(date=date).exists():
-            return render(request, 'Result.html', {'data': data})
+            return render(request, 'Result.html', {'data': info})
         else:
             messages.info(request, 'No journey for this date')
             return redirect('Login')
@@ -140,16 +157,14 @@ def home(request):
 
 
 def trips(request):
-    if request.method == "POST":
-        phone = request.POST.get('phone')
-        data = journeyDetails.objects.filter(phone=phone)
-        if journeyDetails.objects.filter(phone=phone).exists():
-            return render(request, 'Result.html', {'data': data})
-        else:
-            messages.info(request, 'You have not any trip')
-            return redirect('trips')
+    # if request.method == "POST":
+    # phone = request.POST.get('phone')
+    data = journeyDetails.objects.filter(emailid=r)
+    if journeyDetails.objects.filter(emailid=r).exists():
+        return render(request, 'getid.html', {'data': data})
     else:
-        return render(request, 'trips.html')
+        messages.info(request, 'You have not any trip')
+        return redirect('dash')
 
 
 def dash(request):
@@ -181,7 +196,7 @@ def otp(request):
 
 
 def generateOTP():
-    digits = "0123456789"
+    digits = "abcdefghijklmnopqrstuvwxyz"
     OTP = ""
     global c
 
@@ -195,9 +210,18 @@ def generateOTP():
 
 def send_otp():
     o = generateOTP()
+
     htmlgen = '<p>Your OTP is <strong>'+o+'</strong></p>'
     send_mail('OTP request', o, 'rtritik09@gmail.com',
               [m], fail_silently=False, html_message=htmlgen)
+    return HttpResponse(o)
+
+
+def send_journeykey():
+    o = generateOTP()
+    htmlgen = '<p>Hi, Baap Ji, Your unique key for just saved is <strong>'+o+'</strong></p>'
+    send_mail('Journey Key request', o, 'rtritik09@gmail.com',
+              [r], fail_silently=False, html_message=htmlgen)
     return HttpResponse(o)
 
 
