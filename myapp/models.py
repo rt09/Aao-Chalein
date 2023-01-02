@@ -12,11 +12,13 @@ from django.db.models import Model
 
 class journeyDetails(models.Model):
     id = models.CharField(max_length=100, primary_key=True)
+    dayid = models.CharField(max_length=100)
     emailid = models.CharField(max_length=100)
     name = models.CharField(max_length=100)
     hall = models.CharField(max_length=100)
     date = models.DateField(max_length=100)
     time = models.TimeField(max_length=100)
+    comtime = models.DateTimeField(max_length=100)
     Blocation = models.CharField(max_length=100)
     Dlocation = models.CharField(max_length=100)
     cityfrom = models.CharField(max_length=100)

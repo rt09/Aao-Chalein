@@ -23,17 +23,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
-      body{
-        /* background-image: url("https://1721181113.rsc.cdn77.org/data/images/full/37656/close-up-shot-of-white-toy-angry-robot.jpg") ; */
-                background-color: rgba(255,255,255,0.5);
+      body {
+        background-image: url("https://1721181113.rsc.cdn77.org/data/images/full/37656/close-up-shot-of-white-toy-angry-robot.jpg");
+        background-color: rgba(255, 255, 255, 0.5);
         background-blend-mode: lighten;
-        background-repeat: no-repeat; 
-        background-size:cover;
-
-
+        background-repeat: no-repeat;
+        background-size: cover;
       }
       .container {
         align-items: center;
+
         align-content: center;
         text-align: center;
         align-self: center;
@@ -51,25 +50,32 @@
       <table
         class="table table-striped"
         style="
-          border: 1px solid black;
+          border: 0px solid black;
+          background-color: beige;
           margin-left: auto;
           margin-right: auto;
-          padding: 80px 80px 80px 80px;
-          margin-top: 10px !important;
+          padding: 60px 60px 60px 60px;
+          margin-top: 5px !important;
         "
       >
         <thead>
           <tr style="align-items: center">
             <th>NAME&nbsp;&nbsp;&nbsp;<w</th>
             &nbsp;
-            <th>BLOCATION&nbsp;&nbsp;&nbsp;&nbsp;</th>
+            <th>FROM LOCATION&nbsp;&nbsp;&nbsp;&nbsp;</th>
             &nbsp;&nbsp;
-            <th>DLOCATION&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+            <th>TO LOCATION&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
             <th>CITY FROM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
             <th>CITY TO&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
             <th>HALL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
-            <th>DATE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
-            <th>TIME&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+            <!-- <th>DATE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th> -->
+            <!-- <th>TIME&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th> -->
+            <th>
+              DATE-TIME&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </th>
+            <th>
+              CONTACT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -81,8 +87,10 @@
             <td>{{x.cityfrom}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
             <td>{{x.cityto}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
             <td>{{x.hall}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-            <td>{{x.date}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-            <td>{{x.time}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <!-- <td>{{x.date}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td> -->
+            <!-- <td>{{x.time}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td> -->
+            <td>{{x.comtime}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td>{{x.phone}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
           </tr>
           {% endfor %}
         </tbody>
