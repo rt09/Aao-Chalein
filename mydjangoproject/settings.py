@@ -78,10 +78,21 @@ WSGI_APPLICATION = "mydjangoproject.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': '<your_username>$<your_database_name>',
+#         'USER': '<your_username>',
+#         'PASSWORD': '<your_mysql_password>',
+#         'HOST': '<your_mysql_hostname>',
+#     }
+# }
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'journey',
+        'NAME': 'root$journey',
         'USER': 'root',
         'PASSWORD': 'RTtiwari11@mj',
         'HOST': '127.0.0.1',
@@ -132,8 +143,8 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 # EMAIL_BACKEND = 'django_smtp_ssl.SSLEmailBackend'
-EMAIL_HOST_USER = 'rtritik09@gmail.com'
+EMAIL_HOST_USER = 'aaochalein17@gmail.com'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_PASSWORD = "hyecadojkkminlio"
+EMAIL_HOST_PASSWORD = "cfagccxbmgwvuvwj"

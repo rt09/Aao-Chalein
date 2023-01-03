@@ -214,7 +214,7 @@ def otp(request):
     if request.method == "POST":
 
         otp = request.POST.get('otp')
-        if(int(otp) == int(c)):
+        if(str(otp) == str(c)):
             user = User.objects.create_user(
                 username=u1, email=m, password=p1)
             user.save()
@@ -252,7 +252,7 @@ def send_otp():
 
 def send_journeykey():
     o = generateOTP()
-    htmlgen = '<p>Hi, Baap Ji, Your unique key for just saved is <strong>'+o+'</strong></p>'
+    htmlgen = '<p>Hi, Your unique key for just saved journey details is <strong>'+o+'</strong></p>'
     send_mail('Journey Key request', o, 'rtritik09@gmail.com',
               [r], fail_silently=False, html_message=htmlgen)
     return HttpResponse(o)
