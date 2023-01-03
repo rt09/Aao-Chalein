@@ -246,7 +246,7 @@ def send_otp():
     o = generateOTP()
 
     htmlgen = '<p>Your OTP is <strong>'+o+'</strong></p>'
-    send_mail('OTP request', o, 'rtritik09@gmail.com',
+    send_mail('OTP request', o, 'aaochalein17@gmail.com',
               [m], fail_silently=False, html_message=htmlgen)
     return HttpResponse(o)
 
@@ -254,7 +254,7 @@ def send_otp():
 def send_journeykey():
     o = generateOTP()
     htmlgen = '<p>Hi, Your unique key for just saved journey details is <strong>'+o+'</strong></p>'
-    send_mail('Journey Key request', o, 'rtritik09@gmail.com',
+    send_mail('Journey Key request', o, 'aaochalein17@gmail.com',
               [r], fail_silently=False, html_message=htmlgen)
     return HttpResponse(o)
 

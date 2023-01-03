@@ -27,13 +27,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-htf4y#!7-!xg5bmd=yq&wtjj5xfj32zq+fspqk)xldz!+k$gkr"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
-CSRF_TRUSTED_ORIGINS = [
-    ' https://aao-chalein-production.up.railway.app', ' https://www.aao-chalein-production.up.railway.app'
-]
-CSRF_COOKIE_DOMAIN = None
+ALLOWED_HOSTS = []
+# CSRF_TRUSTED_ORIGINS = [
+#     ' https://aao-chalein-production.up.railway.app', ' https://www.aao-chalein-production.up.railway.app'
+# ]
+# CSRF_COOKIE_DOMAIN = None
 # ALLOWED_HOSTS = [
 #     'localhost',
 # ],
@@ -160,4 +160,4 @@ EMAIL_HOST_USER = 'aaochalein17@gmail.com'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_PASSWORD = "cfagccxbmgwvuvwj"
+EMAIL_HOST_PASSWORD = "vyklzrxibowzquob"
