@@ -29,10 +29,11 @@ SECRET_KEY = "django-insecure-htf4y#!7-!xg5bmd=yq&wtjj5xfj32zq+fspqk)xldz!+k$gkr
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*", 'https://web-production-8b90.up.railway.app/']
-CSRF_TRUSTED_ORIGINS = [
-    ' https://web-production-8b90.up.railway.app/', ' https://web-production-8b90.up.railway.app/'
- ]
+ALLOWED_HOSTS = ['web-production-8b90.up.railway.app',
+                 '127.0.0.1', 'localhost']
+# CSRF_TRUSTED_ORIGINS = [
+#     'web-production-8b90.up.railway.app/'
+#  ]
 # CSRF_COOKIE_DOMAIN = None
 # ALLOWED_HOSTS = [
 #     'localhost',
@@ -55,13 +56,23 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    "django.middleware.csrf.CsrfViewMiddleware",
-    "django.middleware.common.CommonMiddleware",
-    "django.contrib.sessions.middleware.SessionMiddleware",
-    "django.contrib.auth.middleware.AuthenticationMiddleware",
-    "django.contrib.messages.middleware.MessageMiddleware",
-    "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "django.middleware.security.SecurityMiddleware",
+    # "django.middleware.csrf.CsrfViewMiddleware",
+    # "django.middleware.common.CommonMiddleware",
+    # "django.contrib.sessions.middleware.SessionMiddleware",
+    # "django.contrib.auth.middleware.AuthenticationMiddleware",
+    # "django.contrib.messages.middleware.MessageMiddleware",
+    # "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    # "django.middleware.security.SecurityMiddleware",
+    'django.middleware.security.SecurityMiddleware',
+
+    # 'whitenoise.middleware.WhiteNoiseMiddleware',
+
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
 ROOT_URLCONF = "mydjangoproject.urls"
