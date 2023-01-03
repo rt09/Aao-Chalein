@@ -19,6 +19,8 @@ from django.utils.dateparse import parse_datetime
 from django.db.models import Q
 from dateutil.relativedelta import relativedelta
 
+from django.contrib.auth import authenticate, login, logout
+
 
 # Create your views here.
 # from django.template import loader
