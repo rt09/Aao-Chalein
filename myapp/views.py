@@ -29,7 +29,6 @@ from dateutil.relativedelta import relativedelta
 # global m
 # global u1
 
-@ensure_csrf_cookie
 def register(request):
     global m
     global u1
