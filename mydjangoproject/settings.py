@@ -29,7 +29,7 @@ SECRET_KEY = "django-insecure-htf4y#!7-!xg5bmd=yq&wtjj5xfj32zq+fspqk)xldz!+k$gkr
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -92,7 +92,7 @@ WSGI_APPLICATION = "mydjangoproject.wsgi.application"
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'root$journey',
+        'NAME': 'journey',
         'USER': 'root',
         'PASSWORD': 'RTtiwari11@mj',
         'HOST': '127.0.0.1',
