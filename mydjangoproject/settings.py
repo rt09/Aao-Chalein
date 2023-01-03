@@ -31,7 +31,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
 CSRF_TRUSTED_ORIGINS = [
-    ' https://hospitable-wing-production.up.railway.app'
+    ' https://aao-chalein-production.up.railway.app/'
 ]
 # ALLOWED_HOSTS = [
 #     'localhost',
