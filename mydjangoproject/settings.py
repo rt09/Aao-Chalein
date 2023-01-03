@@ -31,7 +31,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
 CSRF_TRUSTED_ORIGINS = [
-    ' https://aao-chalein-production.up.railway.app'
+    ' https://aao-chalein-production.up.railway.app', ' https://www.aao-chalein-production.up.railway.app'
 ]
 CSRF_COOKIE_DOMAIN = None
 # ALLOWED_HOSTS = [
