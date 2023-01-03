@@ -54,9 +54,12 @@ def register(request):
                     messages.info(request, 'Username already exists')
                     return render(request, 'register.html')
                 else:
-                    send_otp()
-                    return render(request, 'otp.html')
-
+                    # send_otp()
+                    # return render(request, 'otp.html')
+                    user = User.objects.create_user(
+                    username=u1, email=m, password=p1)
+                    user.save()
+                    return redirect('Login')
             else:
                 messages.info(request, 'Password are not same')
                 return render(request, 'register.html')
@@ -87,10 +90,10 @@ def Login(request):
 
         if user is not None:
             auth.login(request, user)
-            sv1 = Loggedin(loggedin=username,
-                           time=datetime.now().time(), date=datetime.now().date())
+            # sv1 = Loggedin(loggedin=username,
+            #                time=datetime.now().time(), date=datetime.now().date())
             # sv2 = journeyDetails(username=username)
-            sv1.save()
+            # sv1.save()
             # sv2.save()
             r = searchuser(username)
             return redirect('dash')
