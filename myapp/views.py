@@ -1,5 +1,6 @@
 from multiprocessing import context
 from pickle import NONE
+import django
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.models import User, auth
