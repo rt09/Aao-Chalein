@@ -65,12 +65,11 @@ def register(request):
 
     else:
 
-        return render("register.html", context_instance=RequestContext(request))
+        return render(request, 'register.html', context_instance=RequestContext(request))
 
 
 # u2 = "ritik"
 # GLOBAL_VARIABLE = NONE
-
 r = "devanshs20@iitk.ac.in"
 
 
@@ -99,7 +98,7 @@ def Login(request):
             return redirect('Login')
 
     else:
-        return render("login.html", context_instance=RequestContext(request))
+        return render(request, 'Login.html', context_instance=RequestContext(request))
 
 
 # def delogin(request,*u2):
