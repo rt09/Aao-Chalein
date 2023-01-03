@@ -56,9 +56,8 @@
 <b>    
     <h1  style="font-size:35px ; ">REGISTER HERE!!</h1>
 
-
     <div class="reg">
-        <form method="POST" action="{% url 'register' %}" novalidate>
+        <form method="POST" action="{% url 'register' %}">
         {% csrf_token %}
         <p style="font-size: large;">USERNAME
             <br>

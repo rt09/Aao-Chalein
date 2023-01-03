@@ -31,9 +31,9 @@ DEBUG = os.environ.get('DEBUG_VALUE')
 
 ALLOWED_HOSTS = ['web-production-8b90.up.railway.app',
                  '127.0.0.1', 'localhost','0.0.0.0']
-# CSRF_TRUSTED_ORIGINS = [
-#     'web-production-8b90.up.railway.app/'
-#  ]
+CSRF_TRUSTED_ORIGINS = [
+    'https://web-production-8b90.up.railway.app/',
+ ]
 # CSRF_COOKIE_DOMAIN = None
 # ALLOWED_HOSTS = [
 #     'localhost',
