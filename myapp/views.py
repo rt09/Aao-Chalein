@@ -55,7 +55,7 @@ def register(request):
                     return render(request, 'register.html')
                 else:
                     send_otp()
-                    return redirect('otp')
+                    return render(request, 'otp.html')
 
             else:
                 messages.info(request, 'Password are not same')
