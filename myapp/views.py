@@ -65,7 +65,7 @@ def register(request):
 
     else:
 
-        return render(request, 'register.html')
+        return render("register.html", context_instance=RequestContext(request))
 
 
 # u2 = "ritik"
@@ -99,7 +99,7 @@ def Login(request):
             return redirect('Login')
 
     else:
-        return render(request, 'Login.html')
+        return render("login.html", context_instance=RequestContext(request))
 
 
 # def delogin(request,*u2):
