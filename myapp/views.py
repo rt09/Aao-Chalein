@@ -49,20 +49,20 @@ def register(request):
             if password == password1:
                 if User.objects.filter(email=email).exists():
                     messages.info(request, 'Email already registered')
-                    return redirect('register')
+                    return render(request, 'register.html')
                 elif User.objects.filter(username=username).exists():
                     messages.info(request, 'Username already exists')
-                    return redirect('register')
+                    return render(request, 'register.html')
                 else:
                     send_otp()
                     return redirect('otp')
 
             else:
                 messages.info(request, 'Password are not same')
-                return redirect('register')
+                return render(request, 'register.html')
         else:
             messages.info(request, 'Please register with your IITK email ID')
-            return redirect('register')
+            return render(request, 'register.html')
 
     else:
 
