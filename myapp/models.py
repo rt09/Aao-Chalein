@@ -26,7 +26,7 @@ class journeyDetails(models.Model):
     cityto = models.CharField(max_length=100)
     phone = models.CharField(max_length=100)
     comments = models.CharField(
-        max_length=100, null=True, default=datetime.date)
+        max_length=100, null=True, default=datetime.today)
 
     def __str__(self):
         return self.name
