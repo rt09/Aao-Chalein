@@ -6,6 +6,7 @@ from django.db.models import Model
 # from django.conf.locale.es import formats as es_formats
 # from django import forms
 # from django.forms import ModelForm
+from django.utils.timezone import datetime
 
 # Create your models here.
 
@@ -24,11 +25,15 @@ class journeyDetails(models.Model):
     cityfrom = models.CharField(max_length=100)
     cityto = models.CharField(max_length=100)
     phone = models.CharField(max_length=100)
-    comments = models.CharField(max_length=100)
+    comments = models.CharField(
+        max_length=100, null=True, default=datetime.date)
 
-    class Meta:
-        db_table = 'details'
-        managed = False
+    def __str__(self):
+        return self.name
+
+    # class Meta:
+    #     db_table = 'details'
+    #     managed = False
 
 
 class Loggedin(models.Model):
@@ -37,9 +42,9 @@ class Loggedin(models.Model):
     time = models.TimeField(max_length=100)
     date = models.DateField(max_length=100)
 
-    class Meta:
-        db_table = 'login'
-        managed = False
+    # class Meta:
+    #     db_table = 'login'
+    #     managed = False
 
     def __str__(self):
         return self.loggedin
@@ -51,6 +56,8 @@ class contactinfo(models.Model):
     subject = models.CharField(max_length=100)
     message = models.CharField(max_length=200)
 
-    class Meta:
-        db_table = 'wantstocontact'
-        managed = False
+    # class Meta:
+    #     db_table = 'wantstocontact'
+    #     managed = False
+    def __str__(self):
+        return self.name

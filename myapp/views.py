@@ -54,12 +54,12 @@ def register(request):
                     messages.info(request, 'Username already exists')
                     return render(request, 'register.html')
                 else:
-                    # send_otp()
+                    send_otp()
                     # return render(request, 'otp.html')
                     user = User.objects.create_user(
-                    username=u1, email=m, password=p1)
+                        username=u1, email=m, password=p1)
                     user.save()
-                    return redirect('Login')
+                    return redirect('otp')
             else:
                 messages.info(request, 'Password are not same')
                 return render(request, 'register.html')
