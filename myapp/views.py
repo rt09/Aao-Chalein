@@ -34,6 +34,8 @@ from django.contrib.auth import authenticate, login, logout
 def logout(request):
     auth.logout(request)
     return redirect('Login')
+
+
 def register(request):
     global m
     global u1
@@ -58,9 +60,6 @@ def register(request):
                 else:
                     send_otp()
                     # return render(request, 'otp.html')
-                    user = User.objects.create_user(
-                        username=u1, email=m, password=p1)
-                    user.save()
                     return redirect('otp')
             else:
                 messages.info(request, 'Password are not same')
@@ -222,9 +221,9 @@ def otp(request):
 
         otp = request.POST.get('otp')
         if(str(otp) == str(c)):
-            # user = User.objects.create_user(
-            #     username=u1, email=m, password=p1)
-            # user.save()
+            user = User.objects.create_user(
+                username=u1, email=m, password=p1)
+            user.save()
             return redirect('Login')
         else:
             u = User.objects.filter(username=u1)
