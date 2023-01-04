@@ -29,7 +29,7 @@ class journeyDetails(models.Model):
         max_length=100, null=True, default=datetime.today)
 
     def __str__(self):
-        return self.name
+        return self.id
 
     # class Meta:
     #     db_table = 'details'
