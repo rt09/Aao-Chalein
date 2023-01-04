@@ -21,6 +21,7 @@ from django.db.models import Q
 from dateutil.relativedelta import relativedelta
 from django.template import RequestContext
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
@@ -96,7 +97,7 @@ def Login(request):
             # sv2 = journeyDetails(username=username)
             # sv1.save()
             # sv2.save()
-            r = searchuser(username)
+            r = searchuser(user.username)
             return redirect('dash')
         else:
 
@@ -113,7 +114,7 @@ def Login(request):
 #         log.delete()
 #         return redirect('Login')
 
-
+@login_required
 def saver(request):
     if request.method == "POST":
         name = request.POST.get('name')
@@ -136,7 +137,7 @@ def saver(request):
         comment = request.POST.get('comment')
         # username = Loggedin.objects.last()
         send_journeykey()
-        sv = journeyDetails(id=c, emailid=r, name=name, hall=hall, date=date,
+        sv = journeyDetails(id=c, username=request.user.username, name=name, hall=hall, date=date,
                             time=time, comtime=comtime, Blocation=Blocation, Dlocation=Dlocation, cityfrom=cityfrom, cityto=cityto, phone=contact, comments=comment)
         sv.save()
 
@@ -155,6 +156,7 @@ def searchuser(u2):
     return d
 
 
+@login_required
 def search(request):
     if request.method == "POST":
         key = request.POST.get('key')
@@ -187,6 +189,7 @@ def search(request):
         return render(request, 'search.html')
 
 
+@login_required
 def Result(request):
     return render(request, 'Result.html')
 
@@ -195,17 +198,19 @@ def home(request):
     return render(request, 'home.html')
 
 
+@login_required
 def trips(request):
     # if request.method == "POST":
     # phone = request.POST.get('phone')
-    data = journeyDetails.objects.filter(emailid=r)
-    if journeyDetails.objects.filter(emailid=r).exists():
+    data = journeyDetails.objects.filter(username=request.user.username)
+    if journeyDetails.objects.filter(username=request.user.username).exists():
         return render(request, 'getid.html', {'data': data})
     else:
         messages.info(request, 'You have not any trip')
         return redirect('dash')
 
 
+@login_required
 def dash(request):
 
     return render(request, 'dash.html')
