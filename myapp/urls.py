@@ -17,6 +17,7 @@ urlpatterns = [
     path("otp", views.otp, name="otp"),
     # path("dates", views.dates, name="dates"),
     path("contact", views.contact, name="contact"),
+    path("logout",views.logout,name="logout")
     # path("delogin", views.delogin, name="delogin"),
     # path("", views.home1, name="home1"),
     # path("send_otp", views.send_otp, name="send otp"),

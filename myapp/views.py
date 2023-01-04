@@ -31,7 +31,9 @@ from django.contrib.auth import authenticate, login, logout
 #     return render(request, 'index.html')
 # global m
 # global u1
-
+def logout(request):
+    auth.logout(request)
+    return redirect('Login')
 def register(request):
     global m
     global u1
@@ -220,9 +222,9 @@ def otp(request):
 
         otp = request.POST.get('otp')
         if(str(otp) == str(c)):
-            user = User.objects.create_user(
-                username=u1, email=m, password=p1)
-            user.save()
+            # user = User.objects.create_user(
+            #     username=u1, email=m, password=p1)
+            # user.save()
             return redirect('Login')
         else:
             u = User.objects.filter(username=u1)
