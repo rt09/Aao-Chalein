@@ -31,7 +31,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['web-production-e4fe.up.railway.app', 'aao-chalein-production.up.railway.app',
                  '127.0.0.1', 'localhost', '0.0.0.0']
-CSRF_TRUSTED_ORIGINS = ['https: //web-production-e4fe.up.railway.app', 'https://aao-chalein-production.up.railway.app'
+CSRF_TRUSTED_ORIGINS = ['https://web-production-e4fe.up.railway.app', 'https://aao-chalein-production.up.railway.app'
                         ]
 # CSRF_COOKIE_DOMAIN = None
 # ALLOWED_HOSTS = [
