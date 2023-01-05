@@ -14,7 +14,7 @@ from django.utils.timezone import datetime
 class journeyDetails(models.Model):
     id = models.CharField(max_length=100, primary_key=True)
     dayid = models.CharField(max_length=100)
-    username = models.CharField(max_length=100)
+    username = models.CharField(max_length=150)
     name = models.CharField(max_length=150)
     hall = models.CharField(max_length=100)
     date = models.DateField(max_length=100)

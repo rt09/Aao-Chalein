@@ -137,7 +137,8 @@ def saver(request):
         comment = request.POST.get('comment')
         # username = Loggedin.objects.last()
         send_journeykey()
-        sv = journeyDetails(id=c, username=request.user.username, name=name, hall=hall, date=date,
+        # print(request.user.get_username())
+        sv = journeyDetails(id=c, username=request.user.get_username(), name=name, hall=hall, date=date,
                             time=time, comtime=comtime, Blocation=Blocation, Dlocation=Dlocation, cityfrom=cityfrom, cityto=cityto, phone=contact, comments=comment)
         sv.save()
 
@@ -160,6 +161,8 @@ def searchuser(u2):
 def search(request):
     if request.method == "POST":
         key = request.POST.get('key')
+        if not journeyDetails.objects.filter(id=key).exists():
+            return redirect('Login')
         data = journeyDetails.objects.get(id=key)
         date = (data.date)
         datet = (data.comtime)

@@ -5,6 +5,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script>
       var input = document.getElementById("date").value;
@@ -27,7 +33,7 @@
         background-size: cover;
         background-color: rgba(255, 255, 255, 0.41);
         background-blend-mode: lighten;
-        height: 110vh;
+        height:fit-content;
         width: 100%;
       }
       .cont {
@@ -42,26 +48,14 @@
         align-items: center;
         justify-content: space-between;
       }
-      .box {
-        width: 20cm;
-        align-self: center;
-        height: 10cm;
-        border: 5px solid lightgray;
-        background-color: lightgray;
-        opacity: 0.8;
-        border-radius: 1cm;
-        padding: 30px 30px;
-        text-align: center;
-        margin-left: 22%;
-        width: fit-content;
-        height: fit-content;
-      }
+
     </style>
     <title>Save</title>
   </head>
   <body>
-    <a
-      ><button class="logout" style="align-self: flex-start">
+
+
+<a><button class="logout" style="align-self: flex-start">
         <a
           href="Login"
           style="
@@ -73,17 +67,24 @@
         >
       </button></a
     >
-    <div class="cont">
-      <b>
-        <p>crsf token is {% csrf_token %}</p>
-        <h1 style="text-align: center">ENTER YOUR JOURNEY DETAILS</h1>
 
+   <h1 style="text-align: center"><b>ENTER YOUR JOURNEY DETAILS</b></h1>
+
+   <br>
+   <br>
+   <br>
+   <br>
+   
+  <div class="w3-row-padding  w3-padding-8 w3-container" >
         <form method="POST" action="{%url 'saver'%}">
           {% csrf_token %}
-          <div class="box">
-            <div class="save">
-              <section class="item1">
-                <p>
+
+     
+      <div class="w3-half  w3-margin-bottom " class="save">
+
+              <ul class="w3-ul  w3-center "  style="background-color:powderblue; padding:10px; padding-bottom: 20px; padding-top:15px" >
+    
+                <li>
                   NAME<br />
                   <input
                     style="width: 255px; padding: 3px"
@@ -92,8 +93,8 @@
                     placeholder="Enter Your Name"
                     required
                   />
-                </p>
-                <p>
+                </li>
+                <li>
                   HALL<br />
                   <input
                     style="width: 255px; padding: 3px"
@@ -102,8 +103,8 @@
                     placeholder="Enter Your Hall"
                     required
                   />
-                </p>
-                <p>
+                </li>
+                <li>
                   DATE<br />
                   <input
                     style="width: 255px; padding: 3px"
@@ -113,8 +114,8 @@
                     placeholder="Enter Your Journey Date"
                     required
                   />
-                </p>
-                <p>
+                </li>
+                <li>
                   TIME<br />
                   <input
                     style="width: 255px; padding: 3px"
@@ -123,8 +124,8 @@
                     placeholder="Enter Your Journey Time"
                     required
                   />
-                </p>
-                <p>
+                </li>
+                <li>
                   FROM LOCATION<br />
                   <select
                     style="width: 255px; padding: 3px"
@@ -138,11 +139,8 @@
                     <option value="CNB">CNB</option>
                     <option value="IIT Kanpur">IIT Kanpur</option>
                   </select>
-                </p>
-              </section>
-              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-              <section class="item2">
-                <p>
+                </li>
+                                <li>
                   TO LOCATION<br />
                   <select
                     style="width: 255px; padding: 3px"
@@ -156,8 +154,22 @@
                     <option value="CNB">CNB</option>
                     <option value="IIT Kanpur">IIT Kanpur</option>
                   </select>
-                </p>
-                <p>
+                </li>
+                </ul>
+               </div>
+              
+            
+    
+
+      <div class="w3-half w3-margin-bottom" class="save">     
+       
+
+           
+        
+          
+               <ul class="w3-ul  w3-center "  style="background-color:powderblue; padding:10px; padding-top:15px; padding-bottom: 14px;" >
+                
+                <li>
                   CITY FROM<br />
                   <input
                     style="width: 255px; padding: 3px"
@@ -165,8 +177,8 @@
                     name="cityfrom"
                     placeholder="Starting location city"
                   />
-                </p>
-                <p>
+                </li>
+                <li>
                   CITY TO<br />
                   <input
                     style="width: 255px; padding: 3px"
@@ -174,8 +186,8 @@
                     name="cityto"
                     placeholder="Final location city"
                   />
-                </p>
-                <p>
+                </li>
+                <li>
                   CONTACT<br />
                   <input
                     style="width: 255px; padding: 3px"
@@ -184,8 +196,8 @@
                     placeholder="Email ID/Mobile Number"
                     required
                   /><br />
-                </p>
-                <p>
+                </li>
+                <li>
                   COMMENTS<br />
                   <input
                     style="width: 255px; padding: 3px"
@@ -193,20 +205,22 @@
                     name="comment"
                     placeholder="Add comments (if any)"
                   />
-                </p>
-              </section>
-            </div>
-          </div>
-          <br />
-          <input style="width: 80px; padding: 6px" type="submit" />
-        </form>
-
-        <br />
-      </b>
-      <br />
-      <button>
+                </li>
+                <br>
+            <br>
+                <li> <input style="width: 80px; padding: 6px" type="submit" /></li>
+                <li><button>
         <a href="{% url 'dash' %}" style="text-decoration: none">Back</a>
-      </button>
-    </div>
+      </button></li>
+                </ul>
+                </div>
+              
+                
+            
+              
+        
+ </form>
+
+ </div>
   </body>
 </html>

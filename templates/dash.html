@@ -3,13 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         #sec{
             display: flex;
         flex-direction: row-reverse;
-        padding: 15px 200px;
-        height: 550px;
+        padding: 170px 50px;
+        height:fit-content;
+        width:fit-content;
         justify-content: center;
         align-items: center;
         justify-content: space-around;
@@ -22,19 +26,25 @@
         background-repeat: no-repeat; 
         background-size:cover;
         /* text-align: center; */
-        width: 100%;
+        width: fit-content;
+        height: fit-content;
          overflow-x: hidden;
       }
+      .WebContainer{
+        width: 100%;
+        height: 100%;
+      }
+
       .btn {
   background-color:black; /* Green */
   border: none;
   color: white;
-  padding: 20px;
+  padding: 10px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  margin: 4px 2px;
+  margin: 4px 140px;
   cursor: pointer;
   opacity: 0.8;
 }
@@ -48,18 +58,48 @@
 .btn3 {height: 6cm;
     width: 6cm;
     border-radius:50%;}
-    </style>
+
+html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
+.mySlides {display:none}
+.w3-tag, .fa {cursor:pointer}
+.w3-tag {height:15px;width:15px;padding:0;margin-top:6px}    
+</style>
     <title>Dashboard</title>
 </head>
 <body>
-    <button class="logout"><a href='logout' style=" padding-left: 10%; padding-right: 10%;" color: rgb(126, 104, 104); text-decoration:none; border-radius: 50%;">Logout</a></button>
+    <button class="logout"><a href='logout' style=" padding-left: 5%; padding-right: 5%; color: rgb(126, 104, 104); text-decoration:none; border-radius: 50%;">Logout</a></button>
     <section id="sec">
-   
+ 
+<div class="w3-row w3-container">
 
-    <button class="btn btn1"><a href="trips" style="height:2 cm ; color:white; text-decoration:none;   padding: 36px; padding-top: 25px;  font-weight: bolder;" ><h2>Find All Your Trips Unique Key</h2></a></button></br>
-    <button class="btn btn2"><a href="search" style="color: white; text-decoration:none; padding: 16px;padding-top: 25px;  font-weight: bolder;"><h2>Find Match For Your Trip</h2></a></button></br>
-    <button class="btn btn3"><a href="saver" style="color: white; text-decoration:none; padding: 25px;padding-top: 25px;  font-weight: bolder;"><h2>Enter Your Trip Details</h2></a></button>
 
+        <div class="w3-third w3-margin-bottom ">
+              <ul class="w3-ul w3-center">
+       
+              <li><button class="btn btn3"><a href="saver" style="color: white; text-decoration:none; padding-top: 25px;  font-weight: bolder;"><h2>Enter Your Trip Details</h2></a></button></li>
+
+      </ul>
+        </div>    
+    
+
+    <div class="w3-third w3-margin-bottom ">
+              <ul class="w3-ul w3-center ">
+       
+          <li><button class="btn btn1"><a href="trips" style="color:white; text-decoration:none;    padding-top: 25px;  font-weight: bolder;" ><h2>Find Your Trip's Unique Keys</h2></a></button></li>
+
+      </ul>
+        </div>
+    
+    <div class="w3-third w3-margin-bottom ">
+              <ul class="w3-ul w3-center ">
+       
+          <li><button class="btn btn2"><a href="search" style="color: white; text-decoration:none; padding-top: 25px;  font-weight: bolder;"><h2>Find Match For Your Trip</h2></a></button></li>
+
+      </ul>
+        </div>  
+        
+
+    </div>
     </section>
     
 </body>
