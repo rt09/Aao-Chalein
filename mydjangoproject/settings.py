@@ -29,9 +29,9 @@ SECRET_KEY = "django-insecure-htf4y#!7-!xg5bmd=yq&wtjj5xfj32zq+fspqk)xldz!+k$gkr
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['web-production-e4fe.up.railway.app', 'aao-chalein-production.up.railway.app',
+ALLOWED_HOSTS = ['web-production-e4fe.up.railway.app', 'aao-chalein-production.up.railway.app', 'www.aaochalein.online',
                  '127.0.0.1', 'localhost', '0.0.0.0']
-CSRF_TRUSTED_ORIGINS = ['https://web-production-e4fe.up.railway.app', 'https://aao-chalein-production.up.railway.app'
+CSRF_TRUSTED_ORIGINS = ['https://web-production-e4fe.up.railway.app', 'https://aao-chalein-production.up.railway.app', 'http://www.aaochalein.online'
                         ]
 # CSRF_COOKIE_DOMAIN = None
 # ALLOWED_HOSTS = [
@@ -172,10 +172,10 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 # EMAIL_BACKEND = 'django_smtp_ssl.SSLEmailBackend'
-EMAIL_HOST_USER = 'achalein@gmail.com'
+EMAIL_HOST_USER = 'rtritik09@gmail.com'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_PASSWORD = "jygsbrfwicksismy"
+EMAIL_HOST_PASSWORD = "sdtmnxtwezyvevya"
 
 LOGIN_URL = '/Login'
