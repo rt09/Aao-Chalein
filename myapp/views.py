@@ -162,7 +162,8 @@ def search(request):
     if request.method == "POST":
         key = request.POST.get('key')
         if not journeyDetails.objects.filter(id=key).exists():
-            return redirect('Login')
+            messages.info(request, "Please Enter correct key")
+            return render(request, "search.html")
         data = journeyDetails.objects.get(id=key)
         date = (data.date)
         datet = (data.comtime)
