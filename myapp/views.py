@@ -77,12 +77,12 @@ def register(request):
 # u2 = "ritik"
 # GLOBAL_VARIABLE = NONE
 
-r = "devanshs20@iitk.ac.in"
+# r = "devanshs20@iitk.ac.in"
 
 
 def Login(request):
     global u2
-    global r
+    # global r
     if request.method == 'POST':
         username = request.POST['username']
         u2 = username
@@ -97,7 +97,7 @@ def Login(request):
             # sv2 = journeyDetails(username=username)
             # sv1.save()
             # sv2.save()
-            r = searchuser(user.username)
+            # r = searchuser(user.username)
             return redirect('dash')
         else:
 
@@ -136,7 +136,7 @@ def saver(request):
         contact = request.POST.get('phone')
         comment = request.POST.get('comment')
         # username = Loggedin.objects.last()
-        send_journeykey()
+        # send_journeykey()
         # print(request.user.get_username())
         sv = journeyDetails(id=c, username=request.user.get_username(), name=name, hall=hall, date=date,
                             time=time, comtime=comtime, Blocation=Blocation, Dlocation=Dlocation, cityfrom=cityfrom, cityto=cityto, phone=contact, comments=comment)
@@ -149,12 +149,12 @@ def saver(request):
         return render(request, 'saver.html')
 
 
-def searchuser(u2):
-    global d
-    keyuser = User.objects.get(username=u2)
-    keyemail = keyuser.email
-    d = keyemail
-    return d
+# def searchuser(u2):
+#     global d
+#     keyuser = User.objects.get(username=u2)
+#     keyemail = keyuser.email
+#     d = keyemail
+#     return d
 
 
 @login_required
@@ -188,7 +188,7 @@ def search(request):
             return render(request, 'Result.html', {'data': info})
         else:
             messages.info(request, 'No journey for this date')
-            return redirect('Login')
+            return render(request,'dash.html')
     else:
         return render(request, 'search.html')
 
@@ -265,12 +265,12 @@ def send_otp():
     return HttpResponse(o)
 
 
-def send_journeykey():
-    o = generateOTP()
-    htmlgen = '<p>Hi, Your unique key for just saved journey details is <strong>'+o+'</strong></p>'
-    send_mail('Journey Key request', o, 'rtritik09@gmail.com',
-              [r], fail_silently=False, html_message=htmlgen)
-    return HttpResponse(o)
+# def send_journeykey(request):
+#     o = generateOTP()
+#     htmlgen = '<p>Hi, Your unique key for just saved journey details is <strong>'+o+'</strong></p>'
+#     send_mail('Journey Key request', o, 'rtritik09@gmail.com',
+#               [request.user.email], fail_silently=False, html_message=htmlgen)
+#     return HttpResponse(o)
 
 
 # def dates(request, *u2):
