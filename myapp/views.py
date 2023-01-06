@@ -138,7 +138,7 @@ def saver(request):
         # username = Loggedin.objects.last()
         # send_journeykey()
         # print(request.user.get_username())
-        sv = journeyDetails(id=c, username=request.user.get_username(), name=name, hall=hall, date=date,
+        sv = journeyDetails(id=generateOTP(), username=request.user.get_username(), name=name, hall=hall, date=date,
                             time=time, comtime=comtime, Blocation=Blocation, Dlocation=Dlocation, cityfrom=cityfrom, cityto=cityto, phone=contact, comments=comment)
         sv.save()
 
