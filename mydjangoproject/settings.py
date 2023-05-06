@@ -72,6 +72,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django_otp.middleware.OTPMiddleware',
+
 ]
 
 ROOT_URLCONF = "mydjangoproject.urls"
@@ -176,6 +178,6 @@ EMAIL_HOST_USER = 'rtritik09@gmail.com'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_PASSWORD = "sdtmnxtwezyvevya"
+EMAIL_HOST_PASSWORD = "jsbeemnclprsjlpt"
 
 LOGIN_URL = '/Login'

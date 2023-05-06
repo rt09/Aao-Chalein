@@ -9,6 +9,8 @@ from .models import journeyDetails, Loggedin, contactinfo
 from django.core.mail import send_mail
 import math
 import random
+from django_otp.oath import totp
+from django_otp.util import random_hex
 from django.conf import settings
 from django.core.mail import EmailMessage, get_connection
 from django.views.decorators.csrf import csrf_exempt
@@ -22,7 +24,8 @@ from dateutil.relativedelta import relativedelta
 from django.template import RequestContext
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-
+import time
+from django_otp.oath import TOTP
 
 # Create your views here.
 # from django.template import loader
@@ -32,25 +35,29 @@ from django.contrib.auth.decorators import login_required
 #     return render(request, 'index.html')
 # global m
 # global u1
+
 def logout(request):
+    
+    user_id = request.session.get('username')
     auth.logout(request)
+    request.session.flush()
+    if user_id:
+        request.session['username'] = user_id
     return redirect('Login')
 
 
 def register(request):
-    global m
-    global u1
-    global p1
+    
     if request.method == 'POST':
         username = request.POST['username']
-        u1 = username
+       
         email = request.POST['email']
-        m = email
+      
         password = request.POST['password']
-        p1 = password
+        
         password1 = request.POST['password1']
 
-        if "@iitk.ac.in" in email:
+        if "@gmail.com" in email:
             if password == password1:
                 if User.objects.filter(email=email).exists():
                     messages.info(request, 'Email already registered')
@@ -59,8 +66,18 @@ def register(request):
                     messages.info(request, 'Username already exists')
                     return render(request, 'register.html')
                 else:
-                    send_otp()
+                    request.session['username'] = username
+                    request.session['password'] = password
+                    request.session['email'] = email
+                    m = request.session.get('email')
+                    otp_code = random_hex(length=6)
+                    request.session['otp_code'] = otp_code
+
+                    htmlgen = '<p>Your OTP is <strong>'+otp_code+'</strong></p>'
+                    send_mail('OTP request', otp_code, 'rtritik09@gmail.com',
+              [m], fail_silently=False, html_message=htmlgen)
                     # return render(request, 'otp.html')
+                    
                     return redirect('otp')
             else:
                 messages.info(request, 'Password are not same')
@@ -98,6 +115,7 @@ def Login(request):
             # sv1.save()
             # sv2.save()
             # r = searchuser(user.username)
+            request.session['username'] = username
             return redirect('dash')
         else:
 
@@ -138,7 +156,7 @@ def saver(request):
         # username = Loggedin.objects.last()
         # send_journeykey()
         # print(request.user.get_username())
-        sv = journeyDetails(id=generateOTP(), username=request.user.get_username(), name=name, hall=hall, date=date,
+        sv = journeyDetails(id=generateOTP(),username=request.user.get_username(), name=name, hall=hall, date=date,
                             time=time, comtime=comtime, Blocation=Blocation, Dlocation=Dlocation, cityfrom=cityfrom, cityto=cityto, phone=contact, comments=comment)
         sv.save()
 
@@ -206,11 +224,11 @@ def home(request):
 def trips(request):
     # if request.method == "POST":
     # phone = request.POST.get('phone')
-    data = journeyDetails.objects.filter(username=request.user.username)
-    if journeyDetails.objects.filter(username=request.user.username).exists():
+    data = journeyDetails.objects.filter(username=request.user.get_username())
+    if journeyDetails.objects.filter(username=request.user.get_username()).exists():
         return render(request, 'getid.html', {'data': data})
     else:
-        messages.info(request, 'You have not any trip')
+        # messages.info(request, 'You have not any trip')
         return redirect('dash')
 
 
@@ -229,40 +247,47 @@ def otp(request):
     if request.method == "POST":
 
         otp = request.POST.get('otp')
-        if(str(otp) == str(c)):
+        otp_code = request.session.get('otp_code')
+        totp = TOTP(otp_code.encode())
+        totp_token = totp.token()
+        u1=request.session.get('username')
+        m=request.session.get('email')
+        p1=request.session.get('password')
+        if otp_code == otp:
             user = User.objects.create_user(
                 username=u1, email=m, password=p1)
             user.save()
+            # del request.session['u1']
+            # del request.session['m']
+            # del request.session['p1']
             return redirect('Login')
         else:
-            u = User.objects.filter(username=u1)
-            u.delete()
+            # del request.session['u1']
+            # del request.session['m']
+            # del request.session['p1']
             return HttpResponse('Invalid OTP')
     else:
 
         return render(request, 'otp.html')
 
-
 def generateOTP():
     digits = "abcdefghijklmnopqrstuvwxyz"
     OTP = ""
-    global c
 
     for i in range(4):
-        OTP += digits[math.floor(random.random() * 10)]
-
-    c = OTP
+         OTP += digits[math.floor(random.random() * 10)]
 
     return OTP
 
 
-def send_otp():
-    o = generateOTP()
+# def send_otp(request):
+#     otp_code = random_hex(length=6)
+#     request.session['otp_code'] = otp_code
 
-    htmlgen = '<p>Your OTP is <strong>'+o+'</strong></p>'
-    send_mail('OTP request', o, 'rtritik09@gmail.com',
-              [m], fail_silently=False, html_message=htmlgen)
-    return HttpResponse(o)
+#     htmlgen = '<p>Your OTP is <strong>'+otp_code+'</strong></p>'
+#     send_mail('OTP request', otp_code, 'rtritik09@gmail.com',
+#               [m], fail_silently=False, html_message=htmlgen)
+#     return HttpResponse(otp_code)
 
 
 # def send_journeykey(request):
