@@ -26,6 +26,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 import time
 from django_otp.oath import TOTP
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import redirect
 
 # Create your views here.
 # from django.template import loader
@@ -36,8 +38,17 @@ from django_otp.oath import TOTP
 # global m
 # global u1
 
+
+# def registration_required(function):
+#     def wrapper(request, *args, **kwargs):
+#         if request.user.registration_complete:
+#             return function(request, *args, **kwargs)
+#         else:
+#             return redirect('register')
+#     return wrapper
+
 def logout(request):
-    
+
     user_id = request.session.get('username')
     auth.logout(request)
     request.session.flush()
@@ -47,14 +58,14 @@ def logout(request):
 
 
 def register(request):
-    
+
     if request.method == 'POST':
         username = request.POST['username']
-       
+
         email = request.POST['email']
-      
+
         password = request.POST['password']
-        
+
         password1 = request.POST['password1']
 
         if "@gmail.com" in email:
@@ -75,9 +86,9 @@ def register(request):
 
                     htmlgen = '<p>Your OTP is <strong>'+otp_code+'</strong></p>'
                     send_mail('OTP request', otp_code, 'rtritik09@gmail.com',
-              [m], fail_silently=False, html_message=htmlgen)
+                              [m], fail_silently=False, html_message=htmlgen)
                     # return render(request, 'otp.html')
-                    
+                    messages.info(request, 'OTP sent successfully')
                     return redirect('otp')
             else:
                 messages.info(request, 'Password are not same')
@@ -156,7 +167,7 @@ def saver(request):
         # username = Loggedin.objects.last()
         # send_journeykey()
         # print(request.user.get_username())
-        sv = journeyDetails(id=generateOTP(),username=request.user.get_username(), name=name, hall=hall, date=date,
+        sv = journeyDetails(id=generateOTP(), username=request.user.get_username(), name=name, hall=hall, date=date,
                             time=time, comtime=comtime, Blocation=Blocation, Dlocation=Dlocation, cityfrom=cityfrom, cityto=cityto, phone=contact, comments=comment)
         sv.save()
 
@@ -206,7 +217,7 @@ def search(request):
             return render(request, 'Result.html', {'data': info})
         else:
             messages.info(request, 'No journey for this date')
-            return render(request,'dash.html')
+            return render(request, 'dash.html')
     else:
         return render(request, 'search.html')
 
@@ -243,19 +254,20 @@ def dash(request):
 
 
 def otp(request):
-
+    
     if request.method == "POST":
 
         otp = request.POST.get('otp')
         otp_code = request.session.get('otp_code')
         totp = TOTP(otp_code.encode())
         totp_token = totp.token()
-        u1=request.session.get('username')
-        m=request.session.get('email')
-        p1=request.session.get('password')
+        u1 = request.session.get('username')
+        m = request.session.get('email')
+        p1 = request.session.get('password')
         if otp_code == otp:
             user = User.objects.create_user(
                 username=u1, email=m, password=p1)
+
             user.save()
             # del request.session['u1']
             # del request.session['m']
@@ -270,15 +282,27 @@ def otp(request):
 
         return render(request, 'otp.html')
 
+
 def generateOTP():
     digits = "abcdefghijklmnopqrstuvwxyz"
     OTP = ""
 
     for i in range(4):
-         OTP += digits[math.floor(random.random() * 10)]
+        OTP += digits[math.floor(random.random() * 10)]
 
     return OTP
 
+
+def resend(request):
+    m = request.session.get('email')
+    otp_code = random_hex(length=6)
+    request.session['otp_code'] = otp_code
+
+    htmlgen = '<p>Your OTP is <strong>'+otp_code+'</strong></p>'
+    send_mail('OTP request', otp_code, 'rtritik09@gmail.com',
+              [m], fail_silently=False, html_message=htmlgen)
+
+    return render(request, 'otp.html')
 
 # def send_otp(request):
 #     otp_code = random_hex(length=6)

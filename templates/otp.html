@@ -3,17 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><b>OTP Verification</b></title>
     <style>
       body {
         background-color: azure;
         text-align: center;
       }
+      .all {
+  width: 320px;
+  padding: 10px;
+  border: 5px solid gray;
+  margin: auto;
+}
     </style>
   </head>
   <body>
-    <form method="POST" action="{%url 'otp'%}">
+    <div class="all">
+     <div id="timer">00:00</div>
+     <form method="POST" action="{%url 'otp'%}">
       {% csrf_token %}
       <br />
       <br />
@@ -23,7 +31,42 @@
         type="text"
         name="otp"
       /><br /><br />
-      <input type="submit" />
+      <input type="submit" /><br/>
+      <button><a href="{% url 'resend' %}" style="padding: 3px; text-decoration: none;" >Resend OTP</a></button>
+
     </form>
+    </div>
+    <script>
+      // Set the duration of the timer in seconds
+      var duration = 300;
+
+      // Update the timer every second
+      var timer = setInterval(function () {
+        // Calculate the minutes and seconds left
+        var minutes = Math.floor(duration / 60);
+        var seconds = duration % 60;
+
+        // Add a leading zero if necessary
+        if (minutes < 10) {
+          minutes = "0" + minutes;
+        }
+        if (seconds < 10) {
+          seconds = "0" + seconds;
+        }
+
+        // Update the timer display
+        document.getElementById("timer").innerHTML = minutes + ":" + seconds;
+
+        // Decrement the duration
+        duration--;
+
+        // If the timer has expired, clear the interval and show an error message
+        if (duration < 0) {
+          clearInterval(timer);
+          document.getElementById("timer").innerHTML = "Expired";
+          alert("Your OTP has expired. Please request a new one.");
+        }
+      }, 1000);
+    </script>
   </body>
 </html>
