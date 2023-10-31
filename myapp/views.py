@@ -85,7 +85,7 @@ def register(request):
                     request.session['otp_code'] = otp_code
 
                     htmlgen = '<p>Your OTP is <strong>'+otp_code+'</strong></p>'
-                    send_mail('OTP request', otp_code, 'rtritik09@gmail.com',
+                    send_mail('OTP request', otp_code, 'rt2207197@gmail.com',
                               [m], fail_silently=False, html_message=htmlgen)
                     # return render(request, 'otp.html')
                     messages.info(request, 'OTP sent successfully')
@@ -299,7 +299,7 @@ def resend(request):
     request.session['otp_code'] = otp_code
 
     htmlgen = '<p>Your OTP is <strong>'+otp_code+'</strong></p>'
-    send_mail('OTP request', otp_code, 'rtritik09@gmail.com',
+    send_mail('OTP request', otp_code, 'rt2207197@gmail.com',
               [m], fail_silently=False, html_message=htmlgen)
 
     return render(request, 'otp.html')
