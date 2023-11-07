@@ -32,7 +32,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-htf4y#!7-!xg5bmd=yq&wtjj5xfj32zq+fspqk)xldz!+k$gkr"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 CSRF_TRUSTED_ORIGINS = ['https://web-production-e4fe.up.railway.app', 'https://web-production-e408.up.railway.app', 'https://aao-chalein-production.up.railway.app', 'https://www.aaochalein.online'
