@@ -29,8 +29,7 @@ SECRET_KEY = "django-insecure-htf4y#!7-!xg5bmd=yq&wtjj5xfj32zq+fspqk)xldz!+k$gkr
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app','web-production-e4fe.up.railway.app','web-production-7802.up.railway.app', 'web-production-e408.up.railway.app', 'aao-chalein-production.up.railway.app', 'www.aaochalein.online',
-                 '127.0.0.1', 'localhost', '0.0.0.0']
+ALLOWED_HOSTS = ['*']
 CSRF_TRUSTED_ORIGINS = ['https://web-production-e4fe.up.railway.app', 'https://web-production-e408.up.railway.app', 'https://aao-chalein-production.up.railway.app', 'https://www.aaochalein.online'
                         ]
 # CSRF_COOKIE_DOMAIN = None
