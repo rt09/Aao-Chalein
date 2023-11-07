@@ -10,8 +10,13 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
-from pathlib import Path
 import os
+from pathlib import Path
+import warnings
+import dj_database_url
+import django
+from django.utils.encoding import force_str
+django.utils.encoding.force_text = force_str
 # from django.conf.locale.es import formats as es_formats
 
 # es_formats.DATETIME_FORMAT = "d M Y H:i:s"
@@ -111,17 +116,17 @@ WSGI_APPLICATION = "mydjangoproject.wsgi.application"
 # }
 
 DATABASES = {
-     'default': {
-         'ENGINE': 'django.db.backends.mysql',
-         'NAME': 'journey',
-         'USER': 'root',
-         'PASSWORD': 'RTtiwari11@mj',
-         'HOST': '127.0.0.1',
-         'PORT': '3306',
-         'OPTIONS': {
-             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
-         }
-     }
+    #  'default': {
+    #      'ENGINE': 'django.db.backends.mysql',
+    #      'NAME': 'journey',
+    #      'USER': 'root',
+    #      'PASSWORD': 'RTtiwari11@mj',
+    #      'HOST': '127.0.0.1',
+    #      'PORT': '3306',
+    #      'OPTIONS': {
+    #          'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
+    #      }
+    #  }
  }
 # DATABASES = {
 #     'default': {
@@ -129,6 +134,8 @@ DATABASES = {
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
+
+DATABASES["default"] = dj_database_url.parse("postgres://ritik_user:yrJMzOyAZRukU2GhCpdWv4uEUKtboBrK@dpg-cl58bek72pts739u7gvg-a.oregon-postgres.render.com/ritik")
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
